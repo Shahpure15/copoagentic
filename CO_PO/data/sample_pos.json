@@ -1,0 +1,14 @@
+[
+  {"po_id": "PO1",  "statement": "Engineering knowledge: Apply mathematics, science, and fundamentals"},
+  {"po_id": "PO2",  "statement": "Problem analysis: Identify, formulate, and analyze complex problems"},
+  {"po_id": "PO3",  "statement": "Design solutions for complex engineering problems"},
+  {"po_id": "PO4",  "statement": "Conduct investigations using research-based knowledge"},
+  {"po_id": "PO5",  "statement": "Modern tool usage: Create and apply appropriate techniques"},
+  {"po_id": "PO6",  "statement": "Engineer and society: Apply contextual reasoning"},
+  {"po_id": "PO7",  "statement": "Environment and sustainability: Understand impact of solutions"},
+  {"po_id": "PO8",  "statement": "Ethics: Apply ethical principles and professional responsibility"},
+  {"po_id": "PO9",  "statement": "Individual and team work: Function effectively in teams"},
+  {"po_id": "PO10", "statement": "Communication: Communicate effectively on complex activities"},
+  {"po_id": "PO11", "statement": "Project management: Demonstrate management principles"},
+  {"po_id": "PO12", "statement": "Life-long learning: Engage in continuous learning"}
+]

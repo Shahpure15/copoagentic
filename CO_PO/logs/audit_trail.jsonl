@@ -1,0 +1,281 @@
+{"timestamp": "2026-05-14T23:20:58.656851", "agent": "Orchestrator", "action": "setup_complete", "detail": "DBMS / SY"}
+{"timestamp": "2026-05-14T23:21:01.225861", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-14T23:21:02.769186", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-14T23:21:02.770280", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-14T23:21:04.079045", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-14T23:21:04.088605", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-14T23:21:05.718102", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-14T23:21:05.719856", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-14T23:21:07.458228", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-14T23:21:07.467655", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-14T23:21:08.788656", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-14T23:21:08.790585", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-14T23:21:10.122458", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-14T23:23:08.830152", "agent": "Orchestrator", "action": "setup_complete", "detail": "dbms / SY"}
+{"timestamp": "2026-05-14T23:23:20.450138", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-14T23:23:21.825758", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-14T23:23:21.826881", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-14T23:23:23.035613", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-14T23:23:23.041733", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-14T23:23:24.264680", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-14T23:23:24.266358", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-14T23:23:25.800820", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-14T23:23:25.809942", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-14T23:23:26.927622", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-14T23:23:26.929265", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-14T23:23:28.053495", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-14T23:24:05.158891", "agent": "POMappingAgent", "action": "start", "detail": "Mapping COs to POs"}
+{"timestamp": "2026-05-15T18:53:27.773367", "agent": "Orchestrator", "action": "setup_complete", "detail": "dbms / SY"}
+{"timestamp": "2026-05-15T18:53:32.456711", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-15T18:53:33.778403", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-15T18:53:33.781503", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-15T18:53:34.971308", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-15T18:53:34.996020", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-15T18:53:36.097939", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-15T18:53:36.099596", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-15T18:53:37.718589", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=5"}
+{"timestamp": "2026-05-15T18:53:37.737504", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-15T18:53:38.763291", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-15T18:53:38.767616", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-15T18:53:39.785002", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-15T18:54:08.968522", "agent": "POMappingAgent", "action": "start", "detail": "Mapping COs to POs"}
+{"timestamp": "2026-05-15T18:56:35.602777", "agent": "Orchestrator", "action": "setup_complete", "detail": "dbms / SY"}
+{"timestamp": "2026-05-15T18:56:43.956478", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-15T18:56:45.146952", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-15T18:56:45.150554", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-15T18:56:46.562519", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-15T18:56:46.571944", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-15T18:56:47.789715", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-15T18:56:47.806407", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-15T18:56:49.222307", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-15T18:56:49.232623", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-15T18:56:50.554146", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-15T18:56:50.556613", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-15T18:56:52.091258", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-15T18:57:11.006918", "agent": "POMappingAgent", "action": "start", "detail": "Mapping COs to POs"}
+{"timestamp": "2026-05-15T18:57:22.200153", "agent": "POMappingAgent", "action": "complete", "detail": "Generated 0 mapping entries"}
+{"timestamp": "2026-05-15T18:57:22.202701", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-15T18:57:22.203288", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=False, Issues=9"}
+{"timestamp": "2026-05-15T18:57:22.222003", "agent": "POMappingAgent", "action": "start", "detail": "Mapping COs to POs"}
+{"timestamp": "2026-05-15T18:57:30.287975", "agent": "POMappingAgent", "action": "complete", "detail": "Generated 72 mapping entries"}
+{"timestamp": "2026-05-15T18:57:30.289891", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-15T18:57:30.290437", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=False, Issues=1"}
+{"timestamp": "2026-05-15T18:57:30.295090", "agent": "POMappingAgent", "action": "start", "detail": "Mapping COs to POs"}
+{"timestamp": "2026-05-15T18:57:37.364904", "agent": "POMappingAgent", "action": "complete", "detail": "Generated 72 mapping entries"}
+{"timestamp": "2026-05-15T18:57:37.368189", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-15T18:57:37.368757", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=False, Issues=1"}
+{"timestamp": "2026-05-15T18:57:50.154555", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-15T18:57:51.382940", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-15T19:04:51.432092", "agent": "COAttainmentAgent", "action": "start", "detail": "Loading marks from data/students/sample_marks.csv"}
+{"timestamp": "2026-05-15T19:04:51.490733", "agent": "COAttainmentAgent", "action": "complete", "detail": "Calculated attainment for 6 COs"}
+{"timestamp": "2026-05-15T19:04:51.497305", "agent": "POAttainmentAgent", "action": "start", "detail": "Calculating PO attainment"}
+{"timestamp": "2026-05-15T19:04:51.497784", "agent": "POAttainmentAgent", "action": "complete", "detail": "Calculated attainment for 12 POs"}
+{"timestamp": "2026-05-15T19:04:51.504197", "agent": "RecommendationAgent", "action": "start", "detail": "Generating recommendations"}
+{"timestamp": "2026-05-15T19:04:52.560385", "agent": "RecommendationAgent", "action": "complete", "detail": "Generated 3 recommendations"}
+{"timestamp": "2026-05-15T19:05:22.915040", "agent": "ReportGeneratorAgent", "action": "start", "detail": "Writing Excel report"}
+{"timestamp": "2026-05-15T19:05:23.088174", "agent": "ReportGeneratorAgent", "action": "complete", "detail": "Saved to data/output/dbms_MultiAgent_20260515_1905.xlsx"}
+{"timestamp": "2026-05-16T10:23:34.348684", "agent": "Orchestrator", "action": "setup_complete", "detail": "DBMS / SY"}
+{"timestamp": "2026-05-16T10:23:36.610707", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T10:27:40.191296", "agent": "Orchestrator", "action": "setup_complete", "detail": "DBMS / SY"}
+{"timestamp": "2026-05-16T10:27:43.433499", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T10:29:48.116744", "agent": "Orchestrator", "action": "setup_complete", "detail": "DBMS / SY"}
+{"timestamp": "2026-05-16T10:29:49.806078", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T10:29:50.996502", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T10:29:51.004166", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T10:29:51.983962", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T10:29:51.999279", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T10:29:52.925640", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T10:29:52.928893", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T10:29:54.024967", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T10:29:54.045967", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T10:29:54.902246", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T10:29:54.904399", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T10:29:55.935621", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T10:59:05.498596", "agent": "Orchestrator", "action": "setup_complete", "detail": "DBMS / SY"}
+{"timestamp": "2026-05-16T10:59:32.347306", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T10:59:33.902908", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T10:59:33.905763", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T10:59:35.314841", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T10:59:35.335527", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T10:59:36.233447", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T10:59:36.256157", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T10:59:37.362685", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T10:59:37.370939", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T10:59:38.285071", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T10:59:38.288422", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T10:59:39.615162", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:03:35.662493", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:03:37.323694", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:03:37.326473", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:03:38.409865", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:03:38.424332", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:03:39.431626", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:03:39.434931", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:03:40.556958", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:03:40.569741", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:03:41.581677", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:03:41.584895", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:03:42.809943", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:03:57.527324", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:03:58.683897", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:04:03.712407", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:04:09.332250", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:04:09.335108", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:04:10.766398", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:04:10.781220", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:04:11.902015", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:04:11.905045", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:04:13.428924", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:04:13.444432", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:04:14.966842", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:04:14.970823", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:04:16.297749", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:05:27.372067", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-16T11:07:12.510198", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:07:14.080943", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:07:14.084683", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:07:15.391381", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:07:15.409563", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:07:16.507523", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:07:16.511069", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:07:17.644620", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:07:17.665113", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:07:18.564665", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:07:18.567723", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:07:19.998354", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:07:30.366856", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-16T11:07:32.287284", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 14 mappings"}
+{"timestamp": "2026-05-16T11:07:32.290400", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-16T11:07:32.291313", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-16T11:07:46.216931", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-16T11:07:48.773120", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 17 mappings"}
+{"timestamp": "2026-05-16T11:07:48.818516", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-16T11:07:50.618542", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 10 mappings"}
+{"timestamp": "2026-05-16T11:07:50.621482", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-16T11:07:50.622498", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-16T11:07:54.698379", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-16T11:07:55.838039", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-16T11:08:31.644274", "agent": "COAttainmentAgent", "action": "start", "detail": "Loading marks from data/students/sample_marks.csv"}
+{"timestamp": "2026-05-16T11:08:31.782740", "agent": "COAttainmentAgent", "action": "complete", "detail": "Calculated attainment for 6 COs"}
+{"timestamp": "2026-05-16T11:08:31.788996", "agent": "POAttainmentAgent", "action": "start", "detail": "Calculating PO attainment"}
+{"timestamp": "2026-05-16T11:08:31.789922", "agent": "POAttainmentAgent", "action": "complete", "detail": "Calculated attainment for 12 POs"}
+{"timestamp": "2026-05-16T11:08:31.797059", "agent": "RecommendationAgent", "action": "start", "detail": "Generating recommendations"}
+{"timestamp": "2026-05-16T11:08:33.602128", "agent": "RecommendationAgent", "action": "complete", "detail": "Generated 5 recommendations"}
+{"timestamp": "2026-05-16T11:08:37.433438", "agent": "ReportGeneratorAgent", "action": "start", "detail": "Writing Excel report"}
+{"timestamp": "2026-05-16T11:08:37.680587", "agent": "ReportGeneratorAgent", "action": "complete", "detail": "Saved to data/output/DBMS_MultiAgent_20260516_1108.xlsx"}
+{"timestamp": "2026-05-16T11:53:40.323340", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:53:42.016750", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:53:42.019329", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:53:43.220615", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:53:43.234402", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:53:44.356336", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:53:44.359213", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:53:45.574908", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:53:45.588031", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-16T11:53:46.801629", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-16T11:53:46.805102", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-16T11:53:48.029174", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-16T11:54:10.504540", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-16T11:54:13.323079", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 16 mappings"}
+{"timestamp": "2026-05-16T11:54:13.326513", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-16T11:54:13.327669", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-16T11:55:14.699234", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-16T11:55:16.403928", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-16T11:55:24.253554", "agent": "COAttainmentAgent", "action": "start", "detail": "Loading marks from data/students/sample_marks.csv"}
+{"timestamp": "2026-05-16T11:55:24.288508", "agent": "COAttainmentAgent", "action": "complete", "detail": "Calculated attainment for 6 COs"}
+{"timestamp": "2026-05-16T11:55:24.295192", "agent": "POAttainmentAgent", "action": "start", "detail": "Calculating PO attainment"}
+{"timestamp": "2026-05-16T11:55:24.296163", "agent": "POAttainmentAgent", "action": "complete", "detail": "Calculated attainment for 12 POs"}
+{"timestamp": "2026-05-16T11:55:24.305290", "agent": "RecommendationAgent", "action": "start", "detail": "Generating recommendations"}
+{"timestamp": "2026-05-16T11:55:25.616532", "agent": "RecommendationAgent", "action": "complete", "detail": "Generated 2 recommendations"}
+{"timestamp": "2026-05-16T11:55:38.996346", "agent": "ReportGeneratorAgent", "action": "start", "detail": "Writing Excel report"}
+{"timestamp": "2026-05-16T11:55:39.232963", "agent": "ReportGeneratorAgent", "action": "complete", "detail": "Saved to data/output/DBMS_MultiAgent_20260516_1155.xlsx"}
+{"timestamp": "2026-05-17T02:03:20.829680", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 7 COs"}
+{"timestamp": "2026-05-17T02:03:22.425419", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 7 COs"}
+{"timestamp": "2026-05-17T02:03:22.429009", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:03:23.631843", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T02:03:23.652920", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 7 COs"}
+{"timestamp": "2026-05-17T02:03:24.858779", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 7 COs"}
+{"timestamp": "2026-05-17T02:03:24.863329", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:03:26.192000", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T02:03:26.207053", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 7 COs"}
+{"timestamp": "2026-05-17T02:03:27.212436", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 7 COs"}
+{"timestamp": "2026-05-17T02:03:27.214433", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:03:28.236201", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T02:03:49.758498", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 7 COs"}
+{"timestamp": "2026-05-17T02:03:50.970355", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 7 COs"}
+{"timestamp": "2026-05-17T02:04:07.726446", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 7 COs"}
+{"timestamp": "2026-05-17T02:04:09.210843", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 7 COs"}
+{"timestamp": "2026-05-17T02:04:09.217505", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:04:10.325918", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T02:04:10.350225", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 7 COs"}
+{"timestamp": "2026-05-17T02:04:11.756572", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 7 COs"}
+{"timestamp": "2026-05-17T02:04:11.759287", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:04:12.884597", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T02:04:12.893533", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 7 COs"}
+{"timestamp": "2026-05-17T02:04:14.216367", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 7 COs"}
+{"timestamp": "2026-05-17T02:04:14.219322", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:04:15.546542", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-17T02:04:32.766127", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-17T02:04:34.442624", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 9 mappings"}
+{"timestamp": "2026-05-17T02:04:34.447313", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-17T02:04:34.448453", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-17T02:04:34.471264", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-17T02:04:37.579416", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-17T02:04:57.693863", "agent": "COAttainmentAgent", "action": "start", "detail": "Loading marks from data/students/sample_marks.csv"}
+{"timestamp": "2026-05-17T02:10:22.108225", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-17T02:10:23.599971", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-17T02:10:23.602573", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:10:24.597930", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T02:10:24.607364", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-17T02:10:25.518647", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-17T02:10:25.522099", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:10:26.644085", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T02:10:26.660381", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-17T02:10:27.873228", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-17T02:10:27.876217", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:10:29.102942", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T02:10:41.487865", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-17T02:10:43.545634", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 14 mappings"}
+{"timestamp": "2026-05-17T02:10:43.547759", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-17T02:10:43.550318", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-17T02:10:43.570284", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-17T02:10:44.667012", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-17T02:11:00.116451", "agent": "COAttainmentAgent", "action": "start", "detail": "Loading marks from data/sample_pos.json"}
+{"timestamp": "2026-05-17T02:13:08.834891", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-17T02:13:10.051144", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-17T02:13:10.053623", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:13:11.304705", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T02:13:11.328874", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-17T02:13:12.327769", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-17T02:13:12.331695", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:13:13.354291", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T02:13:13.371873", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-17T02:13:14.272542", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-17T02:13:14.278642", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T02:13:15.297518", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T02:13:25.710887", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-17T02:13:27.483934", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-17T02:13:27.487694", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-17T02:13:27.488396", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-17T02:13:27.518079", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-17T02:13:28.513321", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-17T02:13:38.374238", "agent": "COAttainmentAgent", "action": "start", "detail": "Loading marks from data/students/sample_marks.csv"}
+{"timestamp": "2026-05-17T02:13:38.395070", "agent": "COAttainmentAgent", "action": "complete", "detail": "Calculated attainment for 6 COs"}
+{"timestamp": "2026-05-17T02:13:38.399164", "agent": "POAttainmentAgent", "action": "start", "detail": "Calculating PO attainment"}
+{"timestamp": "2026-05-17T02:13:38.400011", "agent": "POAttainmentAgent", "action": "complete", "detail": "Calculated attainment for 12 POs"}
+{"timestamp": "2026-05-17T02:13:38.405770", "agent": "RecommendationAgent", "action": "start", "detail": "Generating recommendations"}
+{"timestamp": "2026-05-17T02:13:40.182110", "agent": "RecommendationAgent", "action": "complete", "detail": "Generated 7 recommendations"}
+{"timestamp": "2026-05-17T02:14:15.632080", "agent": "ReportGeneratorAgent", "action": "start", "detail": "Writing Excel report"}
+{"timestamp": "2026-05-17T02:14:15.829905", "agent": "ReportGeneratorAgent", "action": "complete", "detail": "Saved to data/output/DBMS_MultiAgent_20260517_0214.xlsx"}
+{"timestamp": "2026-05-17T20:43:56.075553", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-17T20:43:57.143092", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-17T20:43:57.145148", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T20:43:58.344743", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T20:43:58.355764", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-17T20:43:59.331396", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-17T20:43:59.332916", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T20:44:00.509873", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-17T20:44:00.515092", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-17T20:44:01.436231", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-17T20:44:01.437756", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-17T20:44:02.591450", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}

@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --border-thick: #000000;
+  --neo-border-width: 3px;
+  --text-dark: #000000;
+  
+  --aurora-purple: #A78BFA;
+  --aurora-violet: #F472B6;
+  --aurora-emerald: #34D399;
+  --aurora-amber: #FBBF24;
+  --aurora-crimson: #F87171;
+  --cyber-cyan: #22D3EE;
+
+  --neo-shadow-dark: 4px 4px 0px #000000;
+  --neo-shadow-purple: 4px 4px 0px var(--aurora-purple);
+  --neo-shadow-emerald: 4px 4px 0px var(--aurora-emerald);
+  --neo-shadow-amber: 4px 4px 0px var(--aurora-amber);
+  --neo-shadow-cyan: 4px 4px 0px var(--cyber-cyan);
+  
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  /* Theme transition definitions */
+  --transition-theme: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-image 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Default Theme (Dark Mode) */
+:root, [data-theme="dark"] {
+  --bg-obsidian: #08090C;
+  --bg-grid-color: rgba(255, 255, 255, 0.02);
+  
+  --surface-base: #11131C;
+  --surface-elevate: #181B2A;
+  
+  --border-muted: #1E2235;
+  
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+
+  color-scheme: dark;
+  color: var(--text-primary);
+  background: var(--bg-obsidian);
+}
+
+/* Light Theme Mode - Cyber Neo-Brutalist Developer Journal */
+[data-theme="light"] {
+  --bg-obsidian: #FFFDF6; /* warm luxurious cream book background */
+  --bg-grid-color: rgba(0, 0, 0, 0.04); /* elegant dark grid mesh */
+  
+  --surface-base: #FFFFFF;
+  --surface-elevate: #F4F4F5; /* clean light grey accents */
+  
+  --border-muted: #E2E8F0;
+  
+  --text-primary: #000000; /* bold strict black text */
+  --text-secondary: #475569;
+
+  color-scheme: light;
+  color: var(--text-primary);
+  background: var(--bg-obsidian);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg-obsidian);
+  background-image: radial-gradient(var(--bg-grid-color) 2px, transparent 2px);
+  background-size: 32px 32px;
+  background-attachment: fixed;
+  display: flex;
+  place-items: flex-start;
+  overflow-x: hidden;
+  transition: var(--transition-theme);
+}
+
+/* Global Theme Transition Enablement for Main Components */
+body, .sidebar, .main-content, .topbar, .bento-card, .btn-aurora, .btn-secondary, input, textarea, select, .file-dropzone, .badge-bloom, .matrix-cell {
+  transition: var(--transition-theme), transform 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-obsidian);
+  border-left: 2px solid var(--border-thick);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-base);
+  border: 2px solid var(--border-thick);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--aurora-purple);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Base Layout Classes */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 290px;
+  background: var(--surface-base);
+  border-right: var(--neo-border-width) solid var(--border-thick);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  z-index: 10;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  position: relative;
+}
+
+.topbar {
+  height: 80px;
+  background: var(--surface-base);
+  border-bottom: var(--neo-border-width) solid var(--border-thick);
+  display: flex;
+  align-items: center;
+  padding: 0 2.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.page-wrapper {
+  padding: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Cyber Neo-Brutalist Bento Card Style */
+.bento-card {
+  background: var(--surface-base);
+  border: var(--neo-border-width) solid var(--border-thick);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: var(--neo-shadow-dark);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px var(--aurora-purple);
+  background: var(--surface-elevate);
+}
+
+/* Typography Gradient Utilities */
+.text-gradient {
+  background: linear-gradient(135deg, var(--aurora-purple) 0%, var(--aurora-violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+/* Premium Neo Brutalist Buttons */
+.btn-aurora {
+  background: var(--aurora-purple);
+  color: var(--text-dark);
+  border: var(--neo-border-width) solid var(--border-thick);
+  border-radius: 6px;
+  padding: 0.8rem 1.8rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--neo-shadow-dark);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.btn-aurora:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--aurora-violet);
+  background: #C4B5FD; /* lighter purple */
+}
+
+.btn-aurora:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.btn-aurora:disabled {
+  background: var(--border-muted);
+  color: var(--text-secondary);
+  border-color: var(--border-thick);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: var(--surface-elevate);
+  color: var(--text-primary);
+  border: var(--neo-border-width) solid var(--border-thick);
+  border-radius: 6px;
+  padding: 0.8rem 1.8rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--neo-shadow-dark);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.btn-secondary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--cyber-cyan);
+  background: var(--surface-base);
+}
+
+.btn-secondary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+/* Neo Brutalist Inputs */
+input, textarea, select {
+  background: var(--bg-obsidian);
+  border: var(--neo-border-width) solid var(--border-thick);
+  color: var(--text-primary);
+  border-radius: 6px;
+  padding: 0.85rem 1.1rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.15s ease;
+  box-shadow: 2px 2px 0px #000000;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--aurora-purple);
+  background: var(--surface-elevate);
+  box-shadow: 4px 4px 0px var(--aurora-purple);
+}
+
+/* File Dropzone Style */
+.file-dropzone {
+  border: var(--neo-border-width) dashed var(--border-thick);
+  background: var(--bg-obsidian);
+  border-radius: 8px;
+  padding: 4rem 2rem;
+  text-align: center;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  box-shadow: var(--neo-shadow-dark);
+}
+
+.file-dropzone:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px var(--aurora-purple);
+  background: var(--surface-elevate);
+  border-style: solid;
+}
+
+/* Badges */
+.badge-bloom {
+  background: var(--surface-elevate);
+  color: var(--aurora-purple);
+  border: 2px solid var(--border-thick);
+  padding: 0.35rem 0.95rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  box-shadow: 2px 2px 0px #000000;
+}
+
+/* Heatmap Grid Specifics */
+.matrix-cell {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  border: 2px solid var(--border-thick) !important;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.matrix-cell:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--aurora-purple);
+  z-index: 2;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulseBorder {
+  0% { box-shadow: 3px 3px 0px #000000; }
+  50% { box-shadow: 3px 3px 0px var(--aurora-purple); }
+  100% { box-shadow: 3px 3px 0px #000000; }
+}
+
+.pulse-active-agent {
+  animation: pulseBorder 1.5s infinite ease-in-out;
+}
+
+/* Tactile Theme Toggle Button Hover & Press Animation Styles */
+.theme-toggle-btn:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+.theme-toggle-btn:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 1px 1px 0px #000000 !important;
+}
+
