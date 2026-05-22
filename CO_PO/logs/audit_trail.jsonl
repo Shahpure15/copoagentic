@@ -617,3 +617,7 @@
 {"timestamp": "2026-05-22T22:38:44.329700", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
 {"timestamp": "2026-05-22T22:39:55.494321", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
 {"timestamp": "2026-05-22T22:40:04.438212", "agent": "LearningPlanAgent", "action": "complete", "detail": "Generated 5 structured assignments."}
+{"timestamp": "2026-05-22T23:01:05.522996", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T23:01:07.237562", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 13 mappings"}
+{"timestamp": "2026-05-22T23:01:07.239357", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T23:01:07.239862", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
