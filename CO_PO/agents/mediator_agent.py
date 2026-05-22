@@ -3,20 +3,20 @@ import asyncio
 from tools.llm_client import call_llm_json
 
 async def get_mediator_response(session, history, message: str, phase: int) -> dict:
-    SYSTEM = """You are an academic mediator helping a teacher refine Course Outcomes (Phase 1) or CO-PO Mappings (Phase 2).
+    SYSTEM = """You are an academic mediator helping a teacher refine Course Outcomes (Phase 1), CO-PO Mappings (Phase 2), or Program Outcomes (Phase 3).
 You must analyze their request and generate the appropriate change plan.
     
 Return a JSON object with this exact structure:
 {
   "reply": "Your conversational reply acknowledging the request and explaining the proposed changes.",
   "pending_changes": {
-    "type": "update_co" | "update_mapping" | "delete_co" | "add_co",
+    "type": "update_co" | "update_mapping" | "delete_co" | "add_co" | "update_po",
     "description": "Brief description of the changes",
     "changes": [
       {
         "id": "CO1", 
         "field": "statement" | "blooms_level" | "strength",
-        "new_value": "new value here"
+        "new_value": "Write the ACTUAL new content here. DO NOT use placeholders. If the user asks to rewrite a statement, you MUST write out the complete, updated, pedagogically sound outcome statement."
       }
     ]
   }
@@ -36,6 +36,11 @@ If the request is just conversational and requires no actual modifications to th
         if session.mappings:
             for m in session.mappings:
                 context += f"- {m.co_id} to {m.po_id}: Strength {m.strength}\n"
+    elif phase == 3:
+        context = "Current POs:\n"
+        if session.program_outcomes:
+            for po in session.program_outcomes:
+                context += f"- {po.po_id}: {po.statement}\n"
                 
     history_text = "\n".join([f"{m.role}: {m.content}" for m in history[-5:]])
 

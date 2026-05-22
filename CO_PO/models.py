@@ -249,6 +249,7 @@ class Assignment(Base):
     batch_id = Column(UUID(as_uuid=False), ForeignKey("student_batches.id", ondelete="CASCADE"))
     title = Column(String(255), nullable=False)
     description = Column(Text, nullable=True)
+    content = Column(Text, nullable=True)
     target_co_ids = Column(JSON, nullable=False)  # e.g., ["CO1", "CO2"]
     target_po_ids = Column(JSON, nullable=True)
     max_marks = Column(Float, nullable=False)

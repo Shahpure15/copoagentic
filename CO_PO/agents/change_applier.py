@@ -93,6 +93,34 @@ async def apply_pending_changes(session_id: str, pending_changes: dict, db: Asyn
                         log_metadata={"co_id": co_id, "po_id": po_id, "field": field, "old_value": old_value, "new_value": new_value}
                     ))
                     
+    elif change_type == "update_po":
+        from models import ProgramOutcome
+        for change in changes:
+            po_id = change.get("id")
+            field = change.get("field")
+            new_value = change.get("new_value")
+            
+            result = await db.execute(
+                select(ProgramOutcome).where(
+                    ProgramOutcome.session_id == session_id,
+                    ProgramOutcome.po_id == po_id
+                )
+            )
+            po = result.scalar_one_or_none()
+            if po and hasattr(po, field):
+                old_value = getattr(po, field)
+                
+                setattr(po, field, new_value)
+                db.add(po)
+                
+                audit_logs.append(AuditLog(
+                    session_id=session_id,
+                    agent="Mediator",
+                    action="update_po",
+                    detail=f"Updated {po_id} {field}",
+                    log_metadata={"po_id": po_id, "field": field, "old_value": old_value, "new_value": new_value}
+                ))
+                    
     for log in audit_logs:
         db.add(log)
         
@@ -130,7 +158,7 @@ async def agentic_sync(session_id: str, change_type: str):
             for p in pos_res.scalars().all():
                 state.pos.append(CorePO(po_id=p.po_id, statement=p.statement))
             
-            if change_type == "update_co":
+            if change_type in ["update_co", "update_po"]:
                 # Recalculate mappings but respect manually overridden ones
                 state = await asyncio.to_thread(po_mapper.run, state)
                 state, _ = await asyncio.to_thread(mapping_validator.run, state)

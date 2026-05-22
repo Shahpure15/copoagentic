@@ -157,6 +157,17 @@ const MediatorChat = ({ phase, externalInput }) => {
                     </div>
                     <div style={{ marginBottom: '1rem', fontSize: '0.78rem', fontFamily: "'JetBrains Mono', monospace", color: 'var(--text-secondary)', lineHeight: '1.4' }}>
                       {msg.pending_changes.description}
+                      {msg.pending_changes.changes && msg.pending_changes.changes.length > 0 && (
+                        <div style={{ marginTop: '0.5rem', padding: '0.5rem', background: '#000000', borderRadius: '4px', border: '1px solid var(--border-thick)' }}>
+                          {msg.pending_changes.changes.map((change, idx) => (
+                            <div key={idx} style={{ marginBottom: idx < msg.pending_changes.changes.length - 1 ? '0.5rem' : 0 }}>
+                              <span style={{ color: 'var(--aurora-amber)', fontWeight: 'bold' }}>{change.id}</span>
+                              <span style={{ color: 'var(--text-secondary)', margin: '0 0.3rem' }}>({change.field}) &rarr;</span>
+                              <span style={{ color: 'var(--aurora-emerald)' }}>{String(change.new_value)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                     
                     <div style={{ display: 'flex', gap: '0.5rem' }}>

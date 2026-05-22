@@ -33,6 +33,8 @@ async def generate_learning_plan(
 
     state = AgentState()
     state.subject_name = session.subject.name if session.subject else "Unknown"
+    state.subject_code = session.subject.code if session.subject and hasattr(session.subject, 'code') else "Unknown"
+    state.academic_year = session.academic_year or "Unknown"
     state.syllabus_text = session.syllabus_text or ""
     
     # Load COs
@@ -62,6 +64,7 @@ async def generate_learning_plan(
                 batch_id=batch_id,
                 title=a.title,
                 description=a.description,
+                content=a.content,
                 target_co_ids=a.target_co_ids,
                 target_po_ids=a.target_po_ids,
                 max_marks=a.max_marks
@@ -77,7 +80,7 @@ async def get_assignments(
     batch_id: str,
     db: AsyncSession = Depends(get_db),
 ):
-    result = await db.execute(select(Assignment).where(Assignment.batch_id == batch_id))
+    result = await db.execute(select(Assignment).where(Assignment.batch_id == batch_id).order_by(Assignment.created_at))
     assignments = result.scalars().all()
     
     return [
@@ -85,11 +88,71 @@ async def get_assignments(
             "id": str(a.id),
             "title": a.title,
             "description": a.description,
+            "content": a.content,
             "target_co_ids": a.target_co_ids,
             "target_po_ids": a.target_po_ids,
             "max_marks": a.max_marks
         } for a in assignments
     ]
+
+from pydantic import BaseModel
+class EditAssignmentRequest(BaseModel):
+    instruction: str
+
+@router.post("/batches/{batch_id}/assignments/{assignment_id}/edit")
+async def edit_assignment(
+    batch_id: str,
+    assignment_id: str,
+    req: EditAssignmentRequest,
+    db: AsyncSession = Depends(get_db),
+):
+    from tools.llm_client import call_llm
+    
+    # Get Assignment
+    result = await db.execute(select(Assignment).where(Assignment.id == assignment_id, Assignment.batch_id == batch_id))
+    assignment = result.scalar_one_or_none()
+    if not assignment:
+        raise HTTPException(404, "Assignment not found")
+        
+    prompt = f"""
+    You are an expert AI Instructional Designer.
+    Please rewrite the following assignment based on the user's instruction.
+    
+    ORIGINAL ASSIGNMENT:
+    Title: {assignment.title}
+    Description: {assignment.description}
+    Content:
+    {assignment.content}
+    
+    USER INSTRUCTION:
+    {req.instruction}
+    
+    Return ONLY the raw updated text for the assignment 'Content' using Markdown formatting. Do not include markdown blocks like ```markdown unless they are part of the content.
+    """
+    
+    import asyncio
+    new_content = await asyncio.to_thread(
+        call_llm, 
+        prompt=prompt, 
+        system="You are an expert AI Instructional Designer.",
+        expect_json=False
+    )
+    
+    # Update DB
+    assignment.content = new_content.strip()
+    db.add(assignment)
+    await db.commit()
+    await db.refresh(assignment)
+    
+    return {
+        "id": str(assignment.id),
+        "title": assignment.title,
+        "description": assignment.description,
+        "content": assignment.content,
+        "target_co_ids": assignment.target_co_ids,
+        "target_po_ids": assignment.target_po_ids,
+        "max_marks": assignment.max_marks
+    }
 
 @router.get("/batches/{batch_id}/export_template")
 async def export_excel_template(

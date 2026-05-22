@@ -121,8 +121,18 @@ async def rollback_to_version(
     current_user: Teacher = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    result = await db.execute(select(AuditLog).where(AuditLog.id == audit_id, AuditLog.session_id == session_id))
-    log = result.scalar_one_or_none()
+    result = await db.execute(
+        select(AuditLog, Session)
+        .join(Session, AuditLog.session_id == Session.id)
+        .where(AuditLog.id == audit_id, AuditLog.session_id == session_id)
+    )
+    row = result.first()
+    if not row:
+        raise HTTPException(404, "Audit log not found")
+        
+    log, session = row
+    if session.is_locked:
+        raise HTTPException(403, "Session is locked. Curriculum modifications are frozen.")
     if not log:
         raise HTTPException(404, "Audit log not found")
         

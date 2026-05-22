@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
 import { useSession } from '../context/SessionContext';
-import { Grid, Eye, Edit3, HelpCircle } from 'lucide-react';
-import MediatorChat from './MediatorChat';
+import { Grid, Eye, Edit3, HelpCircle, Lock } from 'lucide-react';
+import { api } from '../api/client';
 
 const Phase4Matrix = () => {
-  const { sessionData } = useSession();
+  const { sessionData, activeSessionId, refreshSession, setChatInput, setIsChatOpen } = useSession();
   const [hoveredCell, setHoveredCell] = useState({ coId: null, poId: null });
-  const [chatInput, setChatInput] = useState('');
 
   if (!sessionData) return <div className="page-wrapper" style={{ color: 'var(--text-secondary)' }}>Retrieving curriculum mapping matrix...</div>;
 
-  const cos = sessionData.cos || [];
-  const pos = sessionData.pos || [];
+  const cos = [...(sessionData.cos || [])].sort((a, b) => a.co_id.localeCompare(b.co_id, undefined, { numeric: true, sensitivity: 'base' }));
+  const pos = [...(sessionData.pos || [])].sort((a, b) => a.po_id.localeCompare(b.po_id, undefined, { numeric: true, sensitivity: 'base' }));
   const mappings = sessionData.mappings || [];
+
+  const handleLock = async () => {
+    if (window.confirm("Are you sure you want to permanently lock this curriculum framework?\nCourse Outcomes, Program Outcomes, and Mappings will be completely frozen.")) {
+      try {
+        await api.post(`/sessions/${activeSessionId}/lock`);
+        await refreshSession();
+      } catch (e) {
+        alert("Failed to lock framework: " + e.message);
+      }
+    }
+  };
+
+  const handleCellDoubleClick = (coId, poId) => {
+    if (sessionData.is_locked) return;
+    setChatInput(`Update mapping strength of ${coId} to ${poId} to `);
+    setIsChatOpen(true);
+  };
 
   // Create lookup table
   const matrix = {};
@@ -56,14 +72,30 @@ const Phase4Matrix = () => {
           </p>
         </div>
         
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--surface-base)', padding: '0.5rem 1rem', borderRadius: '4px', border: '2px solid var(--border-thick)', boxShadow: '2px 2px 0px #000000', fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '600' }}>
-          <HelpCircle size={14} color="var(--aurora-purple)" />
-          Double-click any cell to override weight coefficients manually.
-        </div>
+        {sessionData.is_locked ? (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--surface-base)', padding: '0.5rem 1rem', borderRadius: '4px', border: '2px solid var(--border-thick)', boxShadow: '2px 2px 0px #000000', fontSize: '0.85rem', color: '#FF453A', fontWeight: '700' }}>
+            <Lock size={16} />
+            CURRICULUM FRAMEWORK LOCKED
+          </div>
+        ) : (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--surface-base)', padding: '0.5rem 1rem', borderRadius: '4px', border: '2px solid var(--border-thick)', boxShadow: '2px 2px 0px #000000', fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '600' }}>
+              <HelpCircle size={14} color="var(--aurora-purple)" />
+              Use AI Mediator to override mapping weights.
+            </div>
+            <button 
+              onClick={handleLock}
+              className="btn-primary"
+              style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: '#FF453A', color: '#000' }}
+            >
+              <Lock size={16} /> Lock Framework
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Layout Split: Left for Matrix, Right for Chat */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '2rem', alignItems: 'start' }}>
+      {/* Layout Grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem', alignItems: 'start' }}>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           {/* Grid Table Container */}
@@ -130,13 +162,13 @@ const Phase4Matrix = () => {
                       <td 
                         key={po.po_id} 
                         className="matrix-cell"
-                        onMouseEnter={() => setHoveredCell({ coId: co.co_id, poId: po.po_id })}
-                        onMouseLeave={() => setHoveredCell({ coId: null, poId: null })}
-                        onDoubleClick={() => setChatInput(`Change mapping strength between ${co.co_id} and ${po.po_id} to `)}
+                        onMouseEnter={() => !sessionData.is_locked && setHoveredCell({ coId: co.co_id, poId: po.po_id })}
+                        onMouseLeave={() => !sessionData.is_locked && setHoveredCell({ coId: null, poId: null })}
+                        onDoubleClick={() => handleCellDoubleClick(co.co_id, po.po_id)}
                         style={{ 
                           padding: '1.1rem', 
                           borderRadius: '4px',
-                          cursor: 'pointer',
+                          cursor: sessionData.is_locked ? 'not-allowed' : 'pointer',
                           fontSize: '1rem',
                           ...activeStyle,
                           transform: isCellHovered ? 'translate(-2px, -2px)' : 'none',
@@ -144,7 +176,7 @@ const Phase4Matrix = () => {
                           position: 'relative',
                           zIndex: isCellHovered ? 10 : 1
                         }} 
-                        title="Double click to override"
+                        title={sessionData.is_locked ? "Locked" : "Open AI Mediator chat to override"}
                       >
                         {strength > 0 ? strength : <span style={{ opacity: 0.15 }}>-</span>}
                       </td>
@@ -189,7 +221,7 @@ const Phase4Matrix = () => {
               <div style={{ fontSize: '0.75rem', fontWeight: '600', fontFamily: "'Space Grotesk', sans-serif", color: 'var(--aurora-purple)', letterSpacing: '0.05em' }}>SELECTED OUTCOME FOCUS</div>
               <div style={{ fontSize: '1rem', fontWeight: '600', marginTop: '0.25rem', fontFamily: "'Space Grotesk', sans-serif" }}>{hoveredCell.coId} &bull; {hoveredCell.poId}</div>
               <p style={{ margin: '0.4rem 0 0 0', fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: '1.4' }}>
-                Evaluating strength requirements of {hoveredCell.coId} outcomes against {hoveredCell.poId} capability thresholds. Double click cell block to perform manual structural overrides.
+                Evaluating strength requirements of {hoveredCell.coId} outcomes against {hoveredCell.poId} capability thresholds. Open the global AI Mediator chat to modify weights.
               </p>
             </div>
           ) : (
@@ -200,14 +232,7 @@ const Phase4Matrix = () => {
         </div>
       </div>
       </div>
-      
-      {/* AI Alignment Mediator (Right Sidebar) */}
-      <div style={{ position: 'sticky', top: '2rem' }}>
-        <MediatorChat phase={2} externalInput={chatInput} />
       </div>
-      
-      </div>
-
     </div>
   );
 };

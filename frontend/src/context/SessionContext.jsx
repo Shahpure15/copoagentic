@@ -8,6 +8,8 @@ export const SessionProvider = ({ children }) => {
   const [activeBatchId, setActiveBatchId] = useState(localStorage.getItem('active_batch') || null);
   const [sessionData, setSessionData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [chatInput, setChatInput] = useState('');
 
   useEffect(() => {
     if (activeSessionId) {
@@ -50,7 +52,11 @@ export const SessionProvider = ({ children }) => {
       setActiveBatchId,
       sessionData,
       refreshSession,
-      loading
+      loading,
+      isChatOpen,
+      setIsChatOpen,
+      chatInput,
+      setChatInput
     }}>
       {children}
     </SessionContext.Provider>

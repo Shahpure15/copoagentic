@@ -489,3 +489,49 @@
 {"timestamp": "2026-05-22T10:37:22.770296", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 21 mappings"}
 {"timestamp": "2026-05-22T10:37:22.772285", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
 {"timestamp": "2026-05-22T10:37:22.772285", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=False, Issues=1"}
+{"timestamp": "2026-05-22T16:08:34.187371", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T16:08:34.325487", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T16:08:36.295135", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T16:08:36.297144", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T16:08:36.382000", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T16:08:36.384138", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T16:08:37.515850", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T16:08:37.517870", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T16:08:38.123115", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T16:08:38.125110", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T16:08:38.215892", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to duplicate or overlapping course outcomes (COs), vague or non-measurable statements, and lack of clarity in some COs. \n\nTo fix these issues:\n* Remove duplicates by merging CO1 and CO5 into a single outcome that focuses on database system performance and data consistency.\n* Rephrase CO3 and CO6 to include specific, measurable criteria for evaluation.\n* Use clear and concise action verbs in all COs to ensure clarity and precision.\n* Ensure each CO has a unique focus to avoid overlap and duplication."}
+{"timestamp": "2026-05-22T16:08:38.215892", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T16:08:38.218441", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T16:08:38.947660", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to duplicate or overlapping course objectives, vague or non-measurable statements, and uneven complexity levels.\n\nTo fix these issues, follow these instructions:\n* Remove or merge overlapping COs (CO1 and CO5) to avoid duplication.\n* Define specific, measurable criteria for 'effectiveness' in CO3 (e.g., metrics or benchmarks).\n* Clarify 'end-to-end data management' in CO6 (e.g., specify technologies, processes, or outcomes).\n* Increase the complexity level of CO5 to match the others (e.g., add advanced CRUD operations or query optimization).\n* Ensure all COs have clear, quantifiable outcomes to facilitate assessment."}
+{"timestamp": "2026-05-22T16:08:38.949660", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T16:08:38.950666", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T16:08:39.659040", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T16:08:39.959269", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T16:08:40.054533", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T16:08:40.261515", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T16:08:41.736084", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T16:08:41.738084", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T16:08:41.739086", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T16:08:41.864841", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T16:08:41.880371", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 13 mappings"}
+{"timestamp": "2026-05-22T16:08:41.882373", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T16:08:41.883371", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T16:08:41.999111", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T16:08:42.974113", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-22T16:08:43.030581", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-22T16:11:51.242305", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T16:11:52.769842", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T16:11:52.771844", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T16:11:52.772842", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=False, Issues=1"}
+{"timestamp": "2026-05-22T16:49:36.685651", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T16:49:38.711046", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T16:49:38.713057", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T16:49:38.713057", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T16:50:47.634936", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T16:50:49.201039", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T16:50:49.202142", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T16:50:49.203039", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T17:27:18.367684", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T17:27:20.553236", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T17:27:20.556744", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T17:27:20.557766", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}

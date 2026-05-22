@@ -153,8 +153,9 @@ const VersionHistory = () => {
                       <button 
                         className="btn-secondary"
                         onClick={() => handleRollback(ver.id)}
-                        disabled={rollingBack === ver.id}
-                        style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem' }}
+                        disabled={rollingBack === ver.id || sessionData.is_locked}
+                        style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', opacity: sessionData.is_locked ? 0.5 : 1, cursor: sessionData.is_locked ? 'not-allowed' : 'pointer' }}
+                        title={sessionData.is_locked ? "Cannot restore a locked curriculum" : ""}
                       >
                         <ArrowLeft size={16} />
                         {rollingBack === ver.id ? 'Restoring...' : 'Restore This State'}

@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { BookOpen, Target, Grid, BarChart3, Terminal, FileText, Compass, Cpu, History } from 'lucide-react';
+import { BookOpen, Target, Grid, BarChart3, Terminal, FileText, Compass, Cpu, History, Home, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const Sidebar = () => {
+const Sidebar = ({ isCollapsed, onToggle }) => {
   const navItems = [
+    { path: '/courses', label: 'Dashboard', icon: <Home size={18} /> },
     { path: '/session/setup', label: '1. Session Setup', icon: <BookOpen size={18} /> },
     { path: '/session/pipeline', label: '1b. Agent Console', icon: <Cpu size={18} /> },
     { path: '/session/cos', label: '2. Generate COs', icon: <Target size={18} /> },
@@ -16,25 +17,53 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       {/* Brand Header */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2.5rem' }}>
-        <div style={{
-          background: 'var(--aurora-purple)',
-          width: '38px',
-          height: '38px',
-          borderRadius: '4px',
-          display: 'grid',
-          placeItems: 'center',
-          border: '3px solid var(--border-thick)',
-          boxShadow: '2px 2px 0px #000000',
-          color: 'var(--text-dark)'
-        }}>
-          <Terminal size={20} fill="currentColor" />
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: isCollapsed ? 'center' : 'space-between', marginBottom: '2.5rem', position: 'relative' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div style={{
+            background: 'var(--aurora-purple)',
+            width: '38px',
+            height: '38px',
+            borderRadius: '4px',
+            display: 'grid',
+            placeItems: 'center',
+            border: '3px solid var(--border-thick)',
+            boxShadow: '2px 2px 0px #000000',
+            color: 'var(--text-dark)',
+            flexShrink: 0
+          }}>
+            <Terminal size={20} fill="currentColor" />
+          </div>
+          {!isCollapsed && (
+            <span className="text-gradient" style={{ fontSize: '1.4rem', fontWeight: '800', letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
+              COPO.agent
+            </span>
+          )}
         </div>
-        <span className="text-gradient" style={{ fontSize: '1.4rem', fontWeight: '800', letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
-          COPO.agent
-        </span>
+        
+        {/* Toggle Button */}
+        <button 
+          onClick={onToggle}
+          style={{
+            position: 'absolute',
+            right: isCollapsed ? '-20px' : '-20px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            background: 'var(--bg-card)',
+            border: '2px solid var(--border-thick)',
+            borderRadius: '50%',
+            width: '28px',
+            height: '28px',
+            display: 'grid',
+            placeItems: 'center',
+            cursor: 'pointer',
+            zIndex: 10,
+            boxShadow: '1px 1px 0px #000'
+          }}
+        >
+          {isCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
+        </button>
       </div>
 
       {/* Navigation Items */}
@@ -43,9 +72,10 @@ const Sidebar = () => {
           <NavLink
             key={item.path}
             to={item.path}
+            title={isCollapsed ? item.label : undefined}
             style={({ isActive }) => ({
               textDecoration: 'none',
-              padding: '0.85rem 1.1rem',
+              padding: isCollapsed ? '0.85rem' : '0.85rem 1.1rem',
               borderRadius: '6px',
               color: isActive ? 'var(--text-dark)' : 'var(--text-primary)',
               background: isActive ? 'var(--aurora-purple)' : 'transparent',
@@ -54,6 +84,7 @@ const Sidebar = () => {
               boxShadow: isActive ? '3px 3px 0px #000000' : 'none',
               display: 'flex',
               alignItems: 'center',
+              justifyContent: isCollapsed ? 'center' : 'flex-start',
               gap: '0.85rem',
               fontWeight: '700',
               fontFamily: "'Space Grotesk', sans-serif",
@@ -61,7 +92,6 @@ const Sidebar = () => {
               transition: 'all 0.15s ease',
             })}
             onMouseEnter={(e) => {
-              // Custom active hover transitions via raw DOM hover styles
               if (!e.currentTarget.className.includes('active')) {
                 e.currentTarget.style.borderColor = 'var(--border-thick)';
                 e.currentTarget.style.background = 'var(--surface-elevate)';
@@ -86,46 +116,48 @@ const Sidebar = () => {
             }}>
               {item.icon}
             </span>
-            {item.label}
+            {!isCollapsed && item.label}
           </NavLink>
         ))}
       </nav>
 
       {/* Footer Engine Status Banner */}
-      <div style={{ 
-        marginTop: 'auto', 
-        borderTop: '3px solid var(--border-thick)', 
-        paddingTop: '1.5rem' 
-      }}>
+      {!isCollapsed && (
         <div style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
-          gap: '0.75rem',
-          border: '3px solid var(--border-thick)',
-          background: 'var(--surface-elevate)',
-          padding: '0.6rem 0.85rem',
-          borderRadius: '4px',
-          boxShadow: '2px 2px 0px #000000'
+          marginTop: 'auto', 
+          borderTop: '3px solid var(--border-thick)', 
+          paddingTop: '1.5rem' 
         }}>
-          <div style={{
-            width: '10px',
-            height: '10px',
-            borderRadius: '50%',
-            background: 'var(--aurora-emerald)',
-            boxShadow: '0 0 6px var(--aurora-emerald)',
-            border: '1.5px solid var(--border-thick)'
-          }} />
-          <span style={{ 
-            fontSize: '0.75rem', 
-            color: 'var(--text-primary)', 
-            fontFamily: "'Space Grotesk', sans-serif", 
-            fontWeight: '700',
-            textTransform: 'uppercase'
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '0.75rem',
+            border: '3px solid var(--border-thick)',
+            background: 'var(--surface-elevate)',
+            padding: '0.6rem 0.85rem',
+            borderRadius: '4px',
+            boxShadow: '2px 2px 0px #000000'
           }}>
-            Engine: Live
-          </span>
+            <div style={{
+              width: '10px',
+              height: '10px',
+              borderRadius: '50%',
+              background: 'var(--aurora-emerald)',
+              boxShadow: '0 0 6px var(--aurora-emerald)',
+              border: '1.5px solid var(--border-thick)'
+            }} />
+            <span style={{ 
+              fontSize: '0.75rem', 
+              color: 'var(--text-primary)', 
+              fontFamily: "'Space Grotesk', sans-serif", 
+              fontWeight: '700',
+              textTransform: 'uppercase'
+            }}>
+              Engine: Live
+            </span>
+          </div>
         </div>
-      </div>
+      )}
     </aside>
   );
 };

@@ -94,6 +94,23 @@ async def create_course(
         "message": "Course and initial batch created successfully"
     }
 
+@router.delete("/{session_id}")
+async def delete_course(
+    session_id: str,
+    current_user: Teacher = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    # Verify session belongs to user
+    result = await db.execute(select(Session).where(Session.id == session_id, Session.teacher_id == current_user.id))
+    session = result.scalar_one_or_none()
+    
+    if not session:
+        raise HTTPException(status_code=404, detail="Course not found or unauthorized")
+        
+    await db.delete(session)
+    await db.commit()
+    return {"message": "Course deleted successfully"}
+
 @router.post("/{session_id}/batches")
 async def create_batch(
     session_id: str,

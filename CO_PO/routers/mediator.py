@@ -32,6 +32,8 @@ async def mediator_chat(
     session = result.scalar_one_or_none()
     if not session:
         raise HTTPException(404, "Session not found")
+    if session.is_locked:
+        raise HTTPException(403, "Session is locked. Curriculum modifications are frozen.")
 
     history_result = await db.execute(
         select(MediatorChat)
@@ -79,11 +81,19 @@ async def confirm_changes(
     db: AsyncSession = Depends(get_db),
 ):
     result = await db.execute(
-        select(MediatorChat).where(MediatorChat.id == body.chat_id)
+        select(MediatorChat, Session)
+        .join(Session, MediatorChat.session_id == Session.id)
+        .where(MediatorChat.id == body.chat_id)
     )
-    chat_msg = result.scalar_one_or_none()
-    if not chat_msg or str(chat_msg.session_id) != session_id:
+    row = result.first()
+    if not row:
         raise HTTPException(404, "Chat message not found")
+        
+    chat_msg, session = row
+    if str(chat_msg.session_id) != session_id:
+        raise HTTPException(404, "Chat message not found")
+    if session.is_locked:
+        raise HTTPException(403, "Session is locked. Curriculum modifications are frozen.")
     if chat_msg.changes_applied:
         raise HTTPException(400, "Changes already applied")
 

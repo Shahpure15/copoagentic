@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import Optional
 from database import get_db
-from models import Session, Subject, Teacher, StudentBatch
+from models import Session, Subject, Teacher, StudentBatch, ProgramOutcome
 from schemas.deps import get_current_user
 from pydantic import BaseModel
 from datetime import datetime
@@ -268,3 +268,52 @@ async def get_status(
     if not row:
         raise HTTPException(status_code=404, detail="Session not found")
     return {"status": row[0], "current_phase": row[1], "is_locked": row[2]}
+
+class UpdatePORequest(BaseModel):
+    statement: str
+
+@router.post("/{session_id}/lock")
+async def lock_session(
+    session_id: str,
+    current_user: Teacher = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(
+        select(Session).where(Session.id == session_id, Session.teacher_id == current_user.id)
+    )
+    session = result.scalar_one_or_none()
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+    
+    session.is_locked = True
+    session.updated_at = datetime.utcnow()
+    await db.commit()
+    return {"ok": True, "message": "Curriculum framework locked"}
+
+@router.put("/{session_id}/pos/{po_id}")
+async def update_po(
+    session_id: str,
+    po_id: str,
+    body: UpdatePORequest,
+    current_user: Teacher = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(
+        select(Session).where(Session.id == session_id, Session.teacher_id == current_user.id)
+    )
+    session = result.scalar_one_or_none()
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+    if session.is_locked:
+        raise HTTPException(status_code=403, detail="Session is locked. Cannot modify curriculum.")
+        
+    po_result = await db.execute(
+        select(ProgramOutcome).where(ProgramOutcome.session_id == session_id, ProgramOutcome.po_id == po_id)
+    )
+    po = po_result.scalar_one_or_none()
+    if not po:
+        raise HTTPException(status_code=404, detail="PO not found")
+        
+    po.statement = body.statement
+    await db.commit()
+    return {"ok": True, "message": "PO updated successfully"}

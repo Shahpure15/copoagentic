@@ -5,7 +5,7 @@ import { api } from '../api/client';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const Phase6Attainment = () => {
-  const { sessionData, activeBatchId, refreshSession } = useSession();
+  const { activeSessionId, activeBatchId, setActiveBatchId, sessionData, refreshSession } = useSession();
   const [file, setFile] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState(null);
@@ -13,11 +13,13 @@ const Phase6Attainment = () => {
   const [batchData, setBatchData] = useState(null);
   
   useEffect(() => {
-    if (activeBatchId && sessionData?.batches) {
-      const batch = sessionData.batches.find(b => b.id === activeBatchId);
+    if (activeBatchId) {
+      const batch = sessionData?.batches?.find(b => b.id === activeBatchId);
       setBatchData(batch);
+    } else if (sessionData && sessionData.batches && sessionData.batches.length > 0) {
+      setActiveBatchId(sessionData.batches[0].id);
     }
-  }, [activeBatchId, sessionData]);
+  }, [activeBatchId, sessionData, setActiveBatchId]);
   
   const hasAttainmentData = batchData?.co_attainments && batchData.co_attainments.length > 0;
   
@@ -41,11 +43,11 @@ const Phase6Attainment = () => {
     }
   };
 
-  if (!sessionData || !activeBatchId) {
+  if (!activeBatchId) {
     return (
       <div className="page-wrapper animate-fade-in">
         <div className="bento-card">
-          <p>Please initialize a session first.</p>
+          {sessionData?.batches?.length === 0 ? "No batches available for this course. Add a batch in the dashboard." : "Selecting batch..."}
         </div>
       </div>
     );

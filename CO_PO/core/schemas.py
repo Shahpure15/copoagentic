@@ -41,6 +41,7 @@ class POAttainment(BaseModel):
 class Assignment(BaseModel):
     title: str
     description: str
+    content: Optional[str] = None
     target_co_ids: list[str]
     target_po_ids: list[str]
     max_marks: float

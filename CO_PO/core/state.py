@@ -17,6 +17,8 @@ class AgentState:
         # =====================================================
 
         self.subject_name: str = ""
+        self.subject_code: str = ""
+        self.academic_year: str = ""
         self.year: str = ""
         self.syllabus_text: str = ""
 
