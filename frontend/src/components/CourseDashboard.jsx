@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useSession } from '../context/SessionContext';
 import { api } from '../api/client';
-import { BookOpen, Plus, Users, ArrowRight, Settings } from 'lucide-react';
+import { BookOpen, Plus, Users, ArrowRight, Settings, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const CourseDashboard = () => {
-  const { setActiveSessionId, setActiveBatchId } = useSession();
+  const { activeSessionId, setActiveSessionId, setActiveBatchId } = useSession();
   const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -82,6 +82,24 @@ const CourseDashboard = () => {
     setActiveSessionId(sessionId);
     setActiveBatchId(null);
     navigate('/session/setup');
+  };
+
+  const handleDeleteCourse = async (sessionId) => {
+    const isConfirmed = window.confirm(
+      "WARNING: Are you absolutely sure you want to delete this course and ALL associated data (COs, POs, Batches, Students, Assignments, Marks)? This action CANNOT be undone."
+    );
+    if (!isConfirmed) return;
+    
+    try {
+      await api.delete(`/courses/${sessionId}`);
+      if (sessionId === activeSessionId) {
+        setActiveSessionId(null);
+        setActiveBatchId(null);
+      }
+      loadCourses();
+    } catch (e) {
+      alert("Failed to delete course: " + (e.response?.data?.detail || e.message));
+    }
   };
 
   const enterBatchAttainment = (sessionId, batchId) => {
@@ -182,13 +200,23 @@ const CourseDashboard = () => {
                     Status: {course.status}
                   </div>
                 </div>
-                <button 
-                  className="btn-secondary" 
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.75rem', fontSize: '0.85rem' }}
-                  onClick={() => enterCoursePipeline(course.id)}
-                >
-                  <Settings size={16} /> Course Pipeline
-                </button>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-end' }}>
+                  <button 
+                    className="btn-secondary" 
+                    style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.75rem', fontSize: '0.85rem' }}
+                    onClick={() => enterCoursePipeline(course.id)}
+                  >
+                    <Settings size={16} /> Course Pipeline
+                  </button>
+                  <button 
+                    className="btn-secondary" 
+                    style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.3rem 0.6rem', fontSize: '0.75rem', color: '#ff4d4d', borderColor: 'transparent', background: 'rgba(255, 77, 77, 0.1)' }}
+                    onClick={() => handleDeleteCourse(course.id)}
+                    title="Delete Course permanently"
+                  >
+                    <Trash2 size={14} /> Delete
+                  </button>
+                </div>
               </div>
 
               <div style={{ borderTop: '1px solid var(--border-color)', marginTop: '0.5rem', paddingTop: '1rem' }}>
