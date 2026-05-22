@@ -26,7 +26,14 @@ async def apply_pending_changes(session_id: str, pending_changes: dict, db: Asyn
                     CourseOutcome.is_current == True
                 )
             )
-            co = result.scalar_one_or_none()
+            cos = result.scalars().all()
+            co = None
+            if cos:
+                co = cos[0]
+                # Auto-cleanup duplicates if they exist due to a generation bug
+                for extra_co in cos[1:]:
+                    await db.delete(extra_co)
+                    
             if co and hasattr(co, field):
                 old_value = getattr(co, field)
                 
@@ -52,6 +59,27 @@ async def apply_pending_changes(session_id: str, pending_changes: dict, db: Asyn
                     log_metadata={"co_id": co_id, "field": field, "old_value": old_value, "new_value": new_value}
                 ))
                 
+    elif change_type == "delete_co":
+        for change in changes:
+            co_id = change.get("id")
+            result = await db.execute(
+                select(CourseOutcome).where(
+                    CourseOutcome.session_id == session_id,
+                    CourseOutcome.co_id == co_id
+                )
+            )
+            cos = result.scalars().all()
+            for co in cos:
+                await db.delete(co)
+                
+            audit_logs.append(AuditLog(
+                session_id=session_id,
+                agent="Mediator",
+                action="delete_co",
+                detail=f"Deleted {co_id}",
+                log_metadata={"co_id": co_id}
+            ))
+                
     elif change_type == "update_mapping":
         for change in changes:
             mapping_id_parts = change.get("id").split("-") # Expected "CO1-PO2"
@@ -67,7 +95,7 @@ async def apply_pending_changes(session_id: str, pending_changes: dict, db: Asyn
                         COPOMapping.po_id == po_id
                     )
                 )
-                mapping = result.scalar_one_or_none()
+                mapping = result.scalars().first()
                 if mapping and hasattr(mapping, field):
                     old_value = getattr(mapping, field)
                     
@@ -106,7 +134,7 @@ async def apply_pending_changes(session_id: str, pending_changes: dict, db: Asyn
                     ProgramOutcome.po_id == po_id
                 )
             )
-            po = result.scalar_one_or_none()
+            po = result.scalars().first()
             if po and hasattr(po, field):
                 old_value = getattr(po, field)
                 

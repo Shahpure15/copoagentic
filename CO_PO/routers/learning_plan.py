@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from fastapi.responses import FileResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from sqlalchemy.orm import selectinload
 from database import get_db
 from models import Session, StudentBatch, Assignment, Student, CourseOutcome, ProgramOutcome, COPOMapping, StudentMark, COAttainment, POAttainment, Recommendation
 from schemas.deps import get_current_user
@@ -19,6 +20,7 @@ router = APIRouter()
 @router.post("/batches/{batch_id}/generate")
 async def generate_learning_plan(
     batch_id: str,
+    num_assignments: int = 5,
     db: AsyncSession = Depends(get_db),
 ):
     # Load Batch
@@ -28,7 +30,11 @@ async def generate_learning_plan(
         raise HTTPException(404, "Batch not found")
         
     session_id = batch.session_id
-    session_res = await db.execute(select(Session).where(Session.id == session_id))
+    session_res = await db.execute(
+        select(Session)
+        .options(selectinload(Session.subject))
+        .where(Session.id == session_id)
+    )
     session = session_res.scalar_one()
 
     state = AgentState()
@@ -36,6 +42,7 @@ async def generate_learning_plan(
     state.subject_code = session.subject.code if session.subject and hasattr(session.subject, 'code') else "Unknown"
     state.academic_year = session.academic_year or "Unknown"
     state.syllabus_text = session.syllabus_text or ""
+    state.num_assignments = num_assignments
     
     # Load COs
     cos_res = await db.execute(select(CourseOutcome).where(CourseOutcome.session_id == session_id))

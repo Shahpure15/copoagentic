@@ -21,6 +21,7 @@ class AgentState:
         self.academic_year: str = ""
         self.year: str = ""
         self.syllabus_text: str = ""
+        self.num_assignments: int = 5
 
         # =====================================================
         # GENERATED COs + POs

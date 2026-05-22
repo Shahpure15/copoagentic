@@ -195,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Premium Neo Brutalist Buttons */
-.btn-aurora {
+.btn-primary, .btn-aurora {
   background: var(--aurora-purple);
   color: var(--text-dark);
   border: var(--neo-border-width) solid var(--border-thick);
@@ -215,18 +215,18 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.05em;
 }
 
-.btn-aurora:hover:not(:disabled) {
+.btn-primary:hover:not(:disabled), .btn-aurora:hover:not(:disabled) {
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0px var(--aurora-violet);
   background: #C4B5FD; /* lighter purple */
 }
 
-.btn-aurora:active:not(:disabled) {
+.btn-primary:active:not(:disabled), .btn-aurora:active:not(:disabled) {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px #000000;
 }
 
-.btn-aurora:disabled {
+.btn-primary:disabled, .btn-aurora:disabled {
   background: var(--border-muted);
   color: var(--text-secondary);
   border-color: var(--border-thick);
@@ -364,5 +364,24 @@ input:focus, textarea:focus, select:focus {
 .theme-toggle-btn:active {
   transform: translate(2px, 2px) !important;
   box-shadow: 1px 1px 0px #000000 !important;
+}
+
+
+/* Markdown Render Styles */
+.rendered-assignment p, .rendered-description p {
+  margin-bottom: 1rem;
+}
+.rendered-assignment ul, .rendered-description ul,
+.rendered-assignment ol, .rendered-description ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+.rendered-assignment li, .rendered-description li {
+  margin-bottom: 0.5rem;
+}
+.rendered-assignment h1, .rendered-assignment h2, .rendered-assignment h3, .rendered-assignment h4,
+.rendered-description h1, .rendered-description h2, .rendered-description h3, .rendered-description h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 

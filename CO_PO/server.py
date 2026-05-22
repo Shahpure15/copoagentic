@@ -30,9 +30,10 @@ app.include_router(reports.router, prefix="/api/reports", tags=["reports"])
 app.include_router(courses.router, prefix="/api/courses", tags=["courses"])
 app.include_router(learning_plan.router, prefix="/api/learning_plan", tags=["learning_plan"])
 
-# Static files for report downloads
+# Static files for report downloads and assets
 os.makedirs("data/output", exist_ok=True)
 app.mount("/files", StaticFiles(directory="data/output"), name="files")
+app.mount("/data", StaticFiles(directory="data"), name="data")
 
 @app.get("/health")
 async def health():

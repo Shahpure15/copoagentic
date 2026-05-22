@@ -535,3 +535,85 @@
 {"timestamp": "2026-05-22T17:27:20.553236", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
 {"timestamp": "2026-05-22T17:27:20.556744", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
 {"timestamp": "2026-05-22T17:27:20.557766", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T19:04:18.394161", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T19:04:18.535835", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T19:04:20.980941", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T19:04:20.982888", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T19:04:21.085295", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T19:04:21.087117", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T19:04:22.114759", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-22T19:04:22.117759", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T19:04:22.140579", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T19:04:22.143585", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T19:04:22.708495", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to duplicate or overlapping course objectives, vague statements, and lack of specificity. \n\nTo fix these issues, follow these instructions:\n* Remove or merge duplicate course objectives (CO1 and CO5) to avoid overlap\n* Define specific metrics or criteria for evaluating the effectiveness of concurrency control mechanisms in CO3\n* Specify the front-end and back-end technologies to be used in CO6, such as HTML/CSS, JavaScript, and SQL/NoSQL databases."}
+{"timestamp": "2026-05-22T19:04:22.709508", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T19:04:22.710513", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T19:04:22.776288", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to:\n- Duplicate or overlapping course objectives (COs)\n- Vague statements\n- Missing specific action verbs\n- Limited Bloom's taxonomy coverage\n\nTo fix these issues, follow these instructions:\n* Remove duplicates by merging or rephrasing CO1 and CO5\n* Clarify CO3 by defining specific metrics for evaluating concurrency control mechanisms\n* Replace \"analyze\" in CO2 with a more specific action verb like \"compare\" or \"evaluate\"\n* Revise CO4 and CO6 to cover a range of Bloom's levels, such as remembering, applying, and creating."}
+{"timestamp": "2026-05-22T19:04:22.777285", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T19:04:22.779285", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T19:04:23.856386", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T19:04:23.880002", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T19:04:24.144787", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:04:24.328105", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:04:25.983833", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 13 mappings"}
+{"timestamp": "2026-05-22T19:04:25.985832", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:04:25.986834", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T19:04:26.095690", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T19:04:26.476382", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 21 mappings"}
+{"timestamp": "2026-05-22T19:04:26.477858", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:04:26.479882", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T19:04:26.665565", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T19:35:22.577556", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T19:35:22.578557", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T19:35:23.924645", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T19:35:23.927646", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T19:35:25.057802", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T19:35:25.058965", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T19:42:58.390186", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:43:00.264560", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 11 mappings"}
+{"timestamp": "2026-05-22T19:43:00.266568", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:43:00.268163", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T19:43:19.720984", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:43:21.586332", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 16 mappings"}
+{"timestamp": "2026-05-22T19:43:21.588337", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:43:21.589472", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T19:43:59.178871", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:44:01.808570", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 17 mappings"}
+{"timestamp": "2026-05-22T19:44:01.809582", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:44:01.809582", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T19:44:09.521932", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:44:11.506681", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 16 mappings"}
+{"timestamp": "2026-05-22T19:44:11.506681", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:44:11.507683", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T19:49:39.248931", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:49:42.061714", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 20 mappings"}
+{"timestamp": "2026-05-22T19:49:42.063657", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T19:49:42.064705", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T19:54:02.129701", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T19:54:10.116290", "agent": "LearningPlanAgent", "action": "error", "detail": "Failed to parse LLM response: Unterminated string starting at: line 21 column 16 (char 11325)"}
+{"timestamp": "2026-05-22T19:54:16.633576", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T19:54:24.937293", "agent": "LearningPlanAgent", "action": "error", "detail": "Failed to parse LLM response: Unterminated string starting at: line 21 column 16 (char 10945)"}
+{"timestamp": "2026-05-22T19:54:32.700438", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T19:54:39.656441", "agent": "LearningPlanAgent", "action": "error", "detail": "Failed to parse LLM response: Unterminated string starting at: line 21 column 16 (char 10689)"}
+{"timestamp": "2026-05-22T19:55:06.862109", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T19:55:21.890354", "agent": "LearningPlanAgent", "action": "error", "detail": "Failed to parse LLM response: Unterminated string starting at: line 21 column 16 (char 10225)"}
+{"timestamp": "2026-05-22T19:56:13.798764", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T19:56:21.132833", "agent": "LearningPlanAgent", "action": "error", "detail": "Failed to parse LLM response: Unterminated string starting at: line 21 column 16 (char 10657)"}
+{"timestamp": "2026-05-22T19:56:26.242343", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T19:56:38.093316", "agent": "LearningPlanAgent", "action": "complete", "detail": "Generated 6 structured assignments."}
+{"timestamp": "2026-05-22T21:37:12.877958", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T21:37:21.564295", "agent": "LearningPlanAgent", "action": "complete", "detail": "Generated 6 structured assignments."}
+{"timestamp": "2026-05-22T21:37:40.641193", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T21:37:50.192521", "agent": "LearningPlanAgent", "action": "complete", "detail": "Generated 6 structured assignments."}
+{"timestamp": "2026-05-22T22:06:32.660719", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T22:06:41.915896", "agent": "LearningPlanAgent", "action": "complete", "detail": "Generated 6 structured assignments."}
+{"timestamp": "2026-05-22T22:16:31.841092", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T22:16:40.907803", "agent": "LearningPlanAgent", "action": "complete", "detail": "Generated 6 structured assignments."}
+{"timestamp": "2026-05-22T22:33:18.866120", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T22:33:27.360918", "agent": "LearningPlanAgent", "action": "complete", "detail": "Generated 5 structured assignments."}
+{"timestamp": "2026-05-22T22:33:28.177940", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T22:33:36.700641", "agent": "LearningPlanAgent", "action": "complete", "detail": "Generated 5 structured assignments."}
+{"timestamp": "2026-05-22T22:38:20.362989", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T22:38:44.329700", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T22:39:55.494321", "agent": "LearningPlanAgent", "action": "start", "detail": "Generating AI-suggested assignments mapped to COs and POs."}
+{"timestamp": "2026-05-22T22:40:04.438212", "agent": "LearningPlanAgent", "action": "complete", "detail": "Generated 5 structured assignments."}
