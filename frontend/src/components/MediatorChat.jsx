@@ -3,13 +3,19 @@ import { useSession } from '../context/SessionContext';
 import { api } from '../api/client';
 import { Send, Check, X, Bot, User, Loader } from 'lucide-react';
 
-const MediatorChat = ({ phase }) => {
+const MediatorChat = ({ phase, externalInput }) => {
   const { activeSessionId, refreshSession } = useSession();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [sending, setSending] = useState(false);
   
   const scrollRef = useRef(null);
+
+  useEffect(() => {
+    if (externalInput) {
+      setInput(externalInput);
+    }
+  }, [externalInput]);
 
   useEffect(() => {
     if (activeSessionId) loadHistory();

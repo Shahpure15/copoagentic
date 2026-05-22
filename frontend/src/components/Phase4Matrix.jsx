@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useSession } from '../context/SessionContext';
 import { Grid, Eye, Edit3, HelpCircle } from 'lucide-react';
+import MediatorChat from './MediatorChat';
 
 const Phase4Matrix = () => {
   const { sessionData } = useSession();
   const [hoveredCell, setHoveredCell] = useState({ coId: null, poId: null });
+  const [chatInput, setChatInput] = useState('');
 
   if (!sessionData) return <div className="page-wrapper" style={{ color: 'var(--text-secondary)' }}>Retrieving curriculum mapping matrix...</div>;
 
@@ -60,7 +62,11 @@ const Phase4Matrix = () => {
         </div>
       </div>
 
-      {/* Grid Table Container */}
+      {/* Layout Split: Left for Matrix, Right for Chat */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '2rem', alignItems: 'start' }}>
+        
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          {/* Grid Table Container */}
       <div className="bento-card" style={{ overflowX: 'auto', padding: '1.5rem' }}>
         <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '6px', textAlign: 'center' }}>
           <thead>
@@ -126,6 +132,7 @@ const Phase4Matrix = () => {
                         className="matrix-cell"
                         onMouseEnter={() => setHoveredCell({ coId: co.co_id, poId: po.po_id })}
                         onMouseLeave={() => setHoveredCell({ coId: null, poId: null })}
+                        onDoubleClick={() => setChatInput(`Change mapping strength between ${co.co_id} and ${po.po_id} to `)}
                         style={{ 
                           padding: '1.1rem', 
                           borderRadius: '4px',
@@ -191,6 +198,14 @@ const Phase4Matrix = () => {
             </div>
           )}
         </div>
+      </div>
+      </div>
+      
+      {/* AI Alignment Mediator (Right Sidebar) */}
+      <div style={{ position: 'sticky', top: '2rem' }}>
+        <MediatorChat phase={2} externalInput={chatInput} />
+      </div>
+      
       </div>
 
     </div>

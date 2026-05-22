@@ -84,11 +84,23 @@ class Session(Base):
     course_outcomes = relationship("CourseOutcome", back_populates="session", cascade="all, delete-orphan")
     program_outcomes = relationship("ProgramOutcome", back_populates="session", cascade="all, delete-orphan")
     mappings = relationship("COPOMapping", back_populates="session", cascade="all, delete-orphan")
-    co_attainments = relationship("COAttainment", back_populates="session", cascade="all, delete-orphan")
-    po_attainments = relationship("POAttainment", back_populates="session", cascade="all, delete-orphan")
     recommendations = relationship("Recommendation", back_populates="session", cascade="all, delete-orphan")
     audit_logs = relationship("AuditLog", back_populates="session", cascade="all, delete-orphan")
     mediator_chats = relationship("MediatorChat", back_populates="session", cascade="all, delete-orphan")
+    batches = relationship("StudentBatch", back_populates="session", cascade="all, delete-orphan")
+
+class StudentBatch(Base):
+    __tablename__ = "student_batches"
+    id = Column(UUID(as_uuid=False), primary_key=True, default=gen_uuid)
+    session_id = Column(UUID(as_uuid=False), ForeignKey("sessions.id", ondelete="CASCADE"))
+    name = Column(String(100), nullable=False, default="Default Batch")
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    session = relationship("Session", back_populates="batches")
+    students = relationship("Student", back_populates="batch", cascade="all, delete-orphan")
+    assignments = relationship("Assignment", back_populates="batch", cascade="all, delete-orphan")
+    co_attainments = relationship("COAttainment", back_populates="batch", cascade="all, delete-orphan")
+    po_attainments = relationship("POAttainment", back_populates="batch", cascade="all, delete-orphan")
 
 
 class CourseOutcome(Base):
@@ -139,7 +151,7 @@ class COPOMapping(Base):
 class COAttainment(Base):
     __tablename__ = "co_attainment"
     id = Column(UUID(as_uuid=False), primary_key=True, default=gen_uuid)
-    session_id = Column(UUID(as_uuid=False), ForeignKey("sessions.id", ondelete="CASCADE"))
+    batch_id = Column(UUID(as_uuid=False), ForeignKey("student_batches.id", ondelete="CASCADE"))
     co_id = Column(String(10), nullable=False)
     avg_percentage = Column(Float, nullable=False)
     level_1_students_pct = Column(Float, nullable=False)
@@ -147,21 +159,21 @@ class COAttainment(Base):
     level_3_students_pct = Column(Float, nullable=False)
     achieved_level = Column(Integer, nullable=False)
     threshold_used = Column(JSON, nullable=False)
-    __table_args__ = (UniqueConstraint("session_id", "co_id"),)
-    session = relationship("Session", back_populates="co_attainments")
+    __table_args__ = (UniqueConstraint("batch_id", "co_id"),)
+    batch = relationship("StudentBatch", back_populates="co_attainments")
 
 
 class POAttainment(Base):
     __tablename__ = "po_attainment"
     id = Column(UUID(as_uuid=False), primary_key=True, default=gen_uuid)
-    session_id = Column(UUID(as_uuid=False), ForeignKey("sessions.id", ondelete="CASCADE"))
+    batch_id = Column(UUID(as_uuid=False), ForeignKey("student_batches.id", ondelete="CASCADE"))
     po_id = Column(String(10), nullable=False)
     weighted_attainment = Column(Float, nullable=False)
     contributing_cos = Column(JSON, nullable=False)
     is_weak = Column(Boolean, nullable=False)
     weakness_reason = Column(Text, nullable=True)
-    __table_args__ = (UniqueConstraint("session_id", "po_id"),)
-    session = relationship("Session", back_populates="po_attainments")
+    __table_args__ = (UniqueConstraint("batch_id", "po_id"),)
+    batch = relationship("StudentBatch", back_populates="po_attainments")
 
 
 class Recommendation(Base):
@@ -217,3 +229,41 @@ class MediatorChat(Base):
     changes_applied = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     session = relationship("Session", back_populates="mediator_chats")
+
+
+class Student(Base):
+    __tablename__ = "students"
+    id = Column(UUID(as_uuid=False), primary_key=True, default=gen_uuid)
+    batch_id = Column(UUID(as_uuid=False), ForeignKey("student_batches.id", ondelete="CASCADE"))
+    roll_no = Column(String(50), nullable=False)
+    name = Column(String(255), nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    __table_args__ = (UniqueConstraint("batch_id", "roll_no"),)
+    batch = relationship("StudentBatch", back_populates="students")
+    marks = relationship("StudentMark", back_populates="student", cascade="all, delete-orphan")
+
+
+class Assignment(Base):
+    __tablename__ = "assignments"
+    id = Column(UUID(as_uuid=False), primary_key=True, default=gen_uuid)
+    batch_id = Column(UUID(as_uuid=False), ForeignKey("student_batches.id", ondelete="CASCADE"))
+    title = Column(String(255), nullable=False)
+    description = Column(Text, nullable=True)
+    target_co_ids = Column(JSON, nullable=False)  # e.g., ["CO1", "CO2"]
+    target_po_ids = Column(JSON, nullable=True)
+    max_marks = Column(Float, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    batch = relationship("StudentBatch", back_populates="assignments")
+    marks = relationship("StudentMark", back_populates="assignment", cascade="all, delete-orphan")
+
+
+class StudentMark(Base):
+    __tablename__ = "student_marks"
+    id = Column(UUID(as_uuid=False), primary_key=True, default=gen_uuid)
+    student_id = Column(UUID(as_uuid=False), ForeignKey("students.id", ondelete="CASCADE"))
+    assignment_id = Column(UUID(as_uuid=False), ForeignKey("assignments.id", ondelete="CASCADE"))
+    marks_obtained = Column(Float, nullable=True)
+    __table_args__ = (UniqueConstraint("student_id", "assignment_id"),)
+    student = relationship("Student", back_populates="marks")
+    assignment = relationship("Assignment", back_populates="marks")
+

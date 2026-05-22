@@ -38,6 +38,7 @@ const AgentStream = ({ sessionId, onComplete, isStatic = false }) => {
   });
 
   const terminalContainerRef = useRef(null);
+  const terminalEndRef = useRef(null);
 
   useEffect(() => {
     const container = terminalContainerRef.current;
@@ -53,7 +54,7 @@ const AgentStream = ({ sessionId, onComplete, isStatic = false }) => {
   }, [logs]);
 
   useEffect(() => {
-    if (!sessionId) return;
+    if (!sessionId || isStatic) return;
 
     const token = localStorage.getItem('access_token');
     const startStream = async () => {
@@ -361,7 +362,9 @@ const AgentStream = ({ sessionId, onComplete, isStatic = false }) => {
           <Terminal size={14} /> Pipeline Audit Trails
         </div>
         
-        <div style={{ 
+        <div 
+          ref={terminalContainerRef}
+          style={{ 
           background: '#040508', 
           border: '3px solid var(--border-thick)',
           padding: '1.25rem', 

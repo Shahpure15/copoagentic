@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import Optional
 from database import get_db
-from models import Session, Subject, Teacher
+from models import Session, Subject, Teacher, StudentBatch
 from schemas.deps import get_current_user
 from pydantic import BaseModel
 from datetime import datetime
@@ -71,24 +71,27 @@ def session_to_dict(s: Session) -> dict:
             }
             for m in (s.mappings or [])
         ],
-        "co_attainments": [
+        "batches": [
             {
-                "co_id": a.co_id, "avg_percentage": a.avg_percentage,
-                "level_1_students_pct": a.level_1_students_pct,
-                "level_2_students_pct": a.level_2_students_pct,
-                "level_3_students_pct": a.level_3_students_pct,
-                "achieved_level": a.achieved_level,
-                "threshold_used": a.threshold_used,
-            }
-            for a in (s.co_attainments or [])
-        ],
-        "po_attainments": [
-            {
-                "po_id": a.po_id, "weighted_attainment": a.weighted_attainment,
-                "contributing_cos": a.contributing_cos,
-                "is_weak": a.is_weak, "weakness_reason": a.weakness_reason,
-            }
-            for a in (s.po_attainments or [])
+                "id": str(b.id), "name": b.name,
+                "co_attainments": [
+                    {
+                        "co_id": a.co_id, "avg_percentage": a.avg_percentage,
+                        "level_1_students_pct": a.level_1_students_pct,
+                        "level_2_students_pct": a.level_2_students_pct,
+                        "level_3_students_pct": a.level_3_students_pct,
+                        "achieved_level": a.achieved_level,
+                        "threshold_used": a.threshold_used,
+                    } for a in (b.co_attainments or [])
+                ],
+                "po_attainments": [
+                    {
+                        "po_id": a.po_id, "weighted_attainment": a.weighted_attainment,
+                        "contributing_cos": a.contributing_cos,
+                        "is_weak": a.is_weak, "weakness_reason": a.weakness_reason,
+                    } for a in (b.po_attainments or [])
+                ]
+            } for b in (s.batches or [])
         ],
         "recommendations": [
             {
@@ -183,8 +186,18 @@ async def get_session(
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
 
-    await db.refresh(session, ["course_outcomes", "program_outcomes", "mappings",
-                               "co_attainments", "po_attainments", "recommendations"])
+    await db.refresh(session, ["course_outcomes", "program_outcomes", "mappings", "recommendations", "batches"])
+    # Need to load nested attainments within batches
+    from sqlalchemy.orm import selectinload
+    result = await db.execute(
+        select(Session)
+        .options(
+            selectinload(Session.batches).selectinload(StudentBatch.co_attainments),
+            selectinload(Session.batches).selectinload(StudentBatch.po_attainments)
+        )
+        .where(Session.id == session_id)
+    )
+    session = result.scalar_one_or_none()
 
     sub_result = await db.execute(select(Subject).where(Subject.id == session.subject_id))
     subject = sub_result.scalar_one_or_none()
@@ -192,6 +205,12 @@ async def get_session(
     data = session_to_dict(session)
     data["subject_name"] = subject.name if subject else "Unknown"
     data["subject_code"] = subject.code if subject else None
+    
+    if session.current_phase in [1, 2] and subject:
+        from agents.history_analyzer import get_historical_insights
+        insights = await get_historical_insights(str(subject.id), db)
+        data["historical_insights"] = insights.get("insights", [])
+        
     return data
 
 
@@ -214,6 +233,8 @@ async def update_session(
     for field, value in body.model_dump(exclude_none=True).items():
         setattr(session, field, value)
     session.updated_at = datetime.utcnow()
+    db.add(session)
+    await db.commit()
     return {"ok": True}
 
 

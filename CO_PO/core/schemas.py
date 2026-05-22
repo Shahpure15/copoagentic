@@ -38,6 +38,13 @@ class POAttainment(BaseModel):
     is_weak: bool
     weakness_reason: Optional[str] = None
 
+class Assignment(BaseModel):
+    title: str
+    description: str
+    target_co_ids: list[str]
+    target_po_ids: list[str]
+    max_marks: float
+
 class Recommendation(BaseModel):
     target: str             # CO or PO id
     issue: str

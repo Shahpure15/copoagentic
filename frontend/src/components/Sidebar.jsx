@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { BookOpen, Target, Grid, BarChart3, Terminal, FileText, Compass, Cpu } from 'lucide-react';
+import { BookOpen, Target, Grid, BarChart3, Terminal, FileText, Compass, Cpu, History } from 'lucide-react';
 
 const Sidebar = () => {
   const navItems = [
@@ -9,8 +9,10 @@ const Sidebar = () => {
     { path: '/session/cos', label: '2. Generate COs', icon: <Target size={18} /> },
     { path: '/session/pos', label: '3. Input POs', icon: <Compass size={18} /> },
     { path: '/session/matrix', label: '4. Matrix Grid', icon: <Grid size={18} /> },
-    { path: '/session/attainment', label: '5. Attainment Analytics', icon: <BarChart3 size={18} /> },
-    { path: '/session/reports', label: '6. Core Reports', icon: <FileText size={18} /> },
+    { path: '/session/learning_plan', label: '5. AI Learning Plan', icon: <FileText size={18} /> },
+    { path: '/session/attainment', label: '6. Attainment Analytics', icon: <BarChart3 size={18} /> },
+    { path: '/session/reports', label: '7. Core Reports', icon: <FileText size={18} /> },
+    { path: '/session/history', label: '8. Version History', icon: <History size={18} /> },
   ];
 
   return (

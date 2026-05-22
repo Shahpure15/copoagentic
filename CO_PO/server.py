@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import os
 from database import engine, Base
-from routers import auth, sessions, pipeline, mediator, history, reports
+from routers import auth, sessions, pipeline, mediator, history, reports, courses, learning_plan
 
 app = FastAPI(
     title="CO-PO Agentic Platform API",
@@ -27,6 +27,8 @@ app.include_router(pipeline.router, prefix="/api/pipeline", tags=["pipeline"])
 app.include_router(mediator.router, prefix="/api/mediator", tags=["mediator"])
 app.include_router(history.router, prefix="/api/history", tags=["history"])
 app.include_router(reports.router, prefix="/api/reports", tags=["reports"])
+app.include_router(courses.router, prefix="/api/courses", tags=["courses"])
+app.include_router(learning_plan.router, prefix="/api/learning_plan", tags=["learning_plan"])
 
 # Static files for report downloads
 os.makedirs("data/output", exist_ok=True)

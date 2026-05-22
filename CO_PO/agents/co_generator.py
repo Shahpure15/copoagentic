@@ -90,8 +90,8 @@ Example:
     ]
 
     # Save version history
-    if not hasattr(state, "co_versions"):
-        state["co_versions"] = []
+    if not hasattr(state, "co_versions") or state.co_versions is None:
+        state.co_versions = []
 
     state.co_versions.append(data)
 

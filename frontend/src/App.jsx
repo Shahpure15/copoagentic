@@ -4,8 +4,14 @@ import Sidebar from './components/Sidebar';
 import Topbar from './components/Topbar';
 import Phase1Setup from './components/Phase1Setup';
 import Phase2COs from './components/Phase2COs';
+import Phase3POs from './components/Phase3POs';
 import Phase4Matrix from './components/Phase4Matrix';
+import Phase5LearningPlan from './components/Phase5LearningPlan';
+import Phase6Attainment from './components/Phase6Attainment';
+import Phase8Reports from './components/Phase8Reports';
 import AgentControlConsole from './components/AgentControlConsole';
+import VersionHistory from './components/VersionHistory';
+import CourseDashboard from './components/CourseDashboard';
 
 const Placeholder = ({ title }) => (
   <div className="page-wrapper animate-fade-in">
@@ -25,14 +31,17 @@ function App() {
       <div className="main-content">
         <Topbar />
         <Routes>
-          <Route path="/" element={<Navigate to="/session/setup" replace />} />
+          <Route path="/" element={<Navigate to="/courses" replace />} />
+          <Route path="/courses" element={<CourseDashboard />} />
           <Route path="/session/setup" element={<Phase1Setup />} />
           <Route path="/session/pipeline" element={<AgentControlConsole />} />
           <Route path="/session/cos" element={<Phase2COs />} />
-          <Route path="/session/pos" element={<Placeholder title="3. Curriculum Program Outcomes" />} />
+          <Route path="/session/pos" element={<Phase3POs />} />
           <Route path="/session/matrix" element={<Phase4Matrix />} />
-          <Route path="/session/attainment" element={<Placeholder title="5. Attainment Analytics" />} />
-          <Route path="/session/reports" element={<Placeholder title="6. Core Reports" />} />
+          <Route path="/session/learning_plan" element={<Phase5LearningPlan />} />
+          <Route path="/session/attainment" element={<Phase6Attainment />} />
+          <Route path="/session/reports" element={<Phase8Reports />} />
+          <Route path="/session/history" element={<VersionHistory />} />
         </Routes>
       </div>
     </div>

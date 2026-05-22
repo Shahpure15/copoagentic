@@ -5,24 +5,25 @@ import { Play, RotateCcw, AlertTriangle, ArrowRight, Server, Terminal } from 'lu
 import AgentStream from './AgentStream';
 
 const AgentControlConsole = () => {
-  const { activeSessionId, sessionData, refreshSession } = useSession();
+  const { activeSessionId, sessionData, refreshSession, loading } = useSession();
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Start running immediately if we came from the setup trigger
-  const [pipelineRunning, setPipelineRunning] = useState(
-    location.state?.triggerImmediately || false
-  );
-  
+  const [pipelineRunning, setPipelineRunning] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const [hasInitialized, setHasInitialized] = useState(false);
 
   useEffect(() => {
-    if (sessionData?.cos && sessionData.cos.length > 0 && !pipelineRunning) {
-      setCompleted(true);
-    } else {
-      setCompleted(false);
+    if (!loading && sessionData && !hasInitialized) {
+      if (sessionData?.cos && sessionData.cos.length > 0) {
+        setCompleted(true);
+        setPipelineRunning(false);
+      } else if (location.state?.triggerImmediately) {
+        setPipelineRunning(true);
+      }
+      setHasInitialized(true);
     }
-  }, [sessionData, pipelineRunning]);
+  }, [loading, sessionData, location.state, hasInitialized]);
 
   const handleStartPipeline = () => {
     if (!activeSessionId) return;
@@ -35,6 +36,10 @@ const AgentControlConsole = () => {
     setCompleted(true);
     refreshSession();
   };
+
+  if (loading || !hasInitialized) {
+    return <div className="page-wrapper"><div className="bento-card">Loading session data...</div></div>;
+  }
 
   if (!activeSessionId) {
     return (
@@ -152,7 +157,7 @@ const AgentControlConsole = () => {
           </div>
 
           {/* Fallback Static Stream Map */}
-          <AgentStream sessionId={activeSessionId} onComplete={null} />
+          <AgentStream sessionId={activeSessionId} onComplete={null} isStatic={true} />
         </div>
       ) : (
         /* Syllabus uploaded but not run yet */

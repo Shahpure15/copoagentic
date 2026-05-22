@@ -21,7 +21,7 @@ Critically evaluate these Course Outcomes for subject "{state.subject_name}":
 {cos_text}
 
 Check for:
-1. Bloom's taxonomy coverage (all 6 levels should be covered)
+1. Bloom's taxonomy coverage (only levels 3, 4, 5, and 6 should be covered)
 2. Duplicate or overlapping COs
 3. Vague or non-measurable statements
 4. Missing action verbs

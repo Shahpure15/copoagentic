@@ -82,3 +82,34 @@ async def get_report_preview(
             for r in (session.recommendations or [])
         ],
     }
+
+from pydantic import BaseModel
+from typing import Optional
+
+class UpdateRecommendationRequest(BaseModel):
+    accepted: Optional[bool] = None
+    teacher_note: Optional[str] = None
+    implemented: Optional[bool] = None
+
+@router.patch("/recommendations/{rec_id}")
+async def update_recommendation(
+    rec_id: str,
+    body: UpdateRecommendationRequest,
+    current_user: Teacher = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    from models import Recommendation
+    result = await db.execute(
+        select(Recommendation).where(Recommendation.id == rec_id)
+    )
+    rec = result.scalar_one_or_none()
+    if not rec:
+        raise HTTPException(404, "Recommendation not found")
+        
+    for field, value in body.model_dump(exclude_none=True).items():
+        setattr(rec, field, value)
+        
+    db.add(rec)
+    await db.commit()
+    return {"ok": True}
+

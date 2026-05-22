@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from database import get_db
-from models import Teacher, COHistory, Subject
+from models import Teacher, COHistory, Subject, AuditLog, CourseOutcome, COPOMapping
 from schemas.deps import get_current_user
 
 router = APIRouter()
@@ -74,19 +74,9 @@ async def get_auto_suggestions(
     current_user: Teacher = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    # Mocking historical suggestions
-    # from agents.history_advisor import generate_suggestions
-    # suggestions = await generate_suggestions(subject_id, body.get("academic_year"), db)
-    suggestions = [
-        {
-            "co_id": "CO3",
-            "type": "simplify_blooms",
-            "reason": "CO3 attainment was 41% and 38% in the last two years — students are struggling",
-            "suggested_change": "Reduce Bloom's level from L5 (Evaluate) to L3 (Apply)",
-            "confidence": 0.87
-        }
-    ]
-    return {"suggestions": suggestions}
+    from agents.history_analyzer import get_historical_insights
+    data = await get_historical_insights(subject_id, db)
+    return {"suggestions": data.get("insights", [])}
 
 @router.post("/session/{session_id}/archive")
 async def archive_session_to_history(
@@ -94,7 +84,87 @@ async def archive_session_to_history(
     current_user: Teacher = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    # Mocking archive action
-    # from agents.archiver import archive_session
-    # await archive_session(session_id, db)
+    from services.archiver_service import archive_session
+    success = await archive_session(session_id, db)
+    if not success:
+        raise HTTPException(400, "Failed to archive session")
     return {"ok": True}
+
+@router.get("/session/{session_id}/versions")
+async def get_session_versions(
+    session_id: str,
+    current_user: Teacher = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(
+        select(AuditLog)
+        .where(AuditLog.session_id == session_id, AuditLog.agent == "Mediator")
+        .order_by(AuditLog.created_at.desc())
+    )
+    logs = result.scalars().all()
+    
+    return [
+        {
+            "id": str(log.id),
+            "action": log.action,
+            "detail": log.detail,
+            "metadata": log.log_metadata,
+            "created_at": log.created_at.isoformat() if log.created_at else None
+        }
+        for log in logs
+    ]
+
+@router.post("/session/{session_id}/rollback/{audit_id}")
+async def rollback_to_version(
+    session_id: str,
+    audit_id: str,
+    current_user: Teacher = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(select(AuditLog).where(AuditLog.id == audit_id, AuditLog.session_id == session_id))
+    log = result.scalar_one_or_none()
+    if not log:
+        raise HTTPException(404, "Audit log not found")
+        
+    meta = log.log_metadata
+    if not meta or "old_value" not in meta:
+        raise HTTPException(400, "Cannot rollback this action (no old_value stored)")
+        
+    old_value = meta["old_value"]
+    field = meta["field"]
+    
+    if log.action in ["update_co", "rollback_co"]:
+        co_id = meta["co_id"]
+        co_res = await db.execute(select(CourseOutcome).where(CourseOutcome.session_id == session_id, CourseOutcome.co_id == co_id, CourseOutcome.is_current == True))
+        co = co_res.scalar_one_or_none()
+        if co and hasattr(co, field):
+            current_value = getattr(co, field)
+            setattr(co, field, old_value)
+            db.add(co)
+            
+            # Log the rollback itself
+            db.add(AuditLog(
+                session_id=session_id, agent="Mediator", action="rollback_co",
+                detail=f"Rolled back {co_id} {field} to {old_value}",
+                log_metadata={"co_id": co_id, "field": field, "old_value": current_value, "new_value": old_value, "rollback_of": str(log.id)}
+            ))
+            
+    elif log.action in ["update_mapping", "rollback_mapping"]:
+        co_id = meta["co_id"]
+        po_id = meta["po_id"]
+        map_res = await db.execute(select(COPOMapping).where(COPOMapping.session_id == session_id, COPOMapping.co_id == co_id, COPOMapping.po_id == po_id))
+        mapping = map_res.scalar_one_or_none()
+        if mapping and hasattr(mapping, field):
+            current_value = getattr(mapping, field)
+            setattr(mapping, field, old_value)
+            db.add(mapping)
+            
+            db.add(AuditLog(
+                session_id=session_id, agent="Mediator", action="rollback_mapping",
+                detail=f"Rolled back Mapping {co_id}-{po_id} {field} to {old_value}",
+                log_metadata={"co_id": co_id, "po_id": po_id, "field": field, "old_value": current_value, "new_value": old_value, "rollback_of": str(log.id)}
+            ))
+            
+    await db.commit()
+    return {"ok": True, "message": "Rolled back successfully"}
+

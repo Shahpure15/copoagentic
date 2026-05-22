@@ -59,10 +59,11 @@ class AgentState:
         }
 
         # =====================================================
-        # TEACHING PHILOSOPHY
+        # TEACHING PHILOSOPHY & LEARNING PLAN
         # =====================================================
 
         self.teaching_philosophy: str = ""
+        self.assignments: list[Assignment] = []
 
         # =====================================================
         # AI RECOMMENDATIONS

@@ -51,17 +51,8 @@ async def mediator_chat(
 
     await db.refresh(session, ["course_outcomes", "program_outcomes", "mappings"])
     
-    # Mocking LLM Mediator response for the boilerplate
-    # from agents.mediator_agent import get_mediator_response
-    # response = await get_mediator_response(session, history, body.message, body.phase)
-    response = {
-        "reply": f"I understand you want to modify this in phase {body.phase}. Here are the proposed changes.",
-        "pending_changes": {
-            "type": "update_co",
-            "description": "Adjusting CO3 to a lower Bloom's Level",
-            "changes": [{"field": "blooms_level", "old": 5, "new": 3}]
-        }
-    }
+    from agents.mediator_agent import get_mediator_response
+    response = await get_mediator_response(session, history, body.message, body.phase)
 
     assistant_msg = MediatorChat(
         session_id=session_id,
@@ -97,10 +88,8 @@ async def confirm_changes(
         raise HTTPException(400, "Changes already applied")
 
     if body.accept and chat_msg.pending_changes:
-        # Mocking change applier
-        # from agents.change_applier import apply_pending_changes
-        # await apply_pending_changes(session_id, chat_msg.pending_changes, db)
-        pass
+        from agents.change_applier import apply_pending_changes
+        await apply_pending_changes(session_id, chat_msg.pending_changes, db)
 
     chat_msg.changes_applied = True
     return {"ok": True, "applied": body.accept}

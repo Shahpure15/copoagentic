@@ -28,11 +28,24 @@ def call_llm(
         "content": prompt
     })
 
-    response = _client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=messages,
-        temperature=temperature,
-    )
+    import time
+    for attempt in range(5):
+        try:
+            response = _client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=messages,
+                temperature=temperature,
+            )
+            break
+        except Exception as e:
+            if "429" in str(e) or "rate_limit_exceeded" in str(e):
+                if attempt == 4:
+                    raise e
+                wait_time = 2 ** attempt * 2  # 2, 4, 8, 16 seconds
+                print(f"Rate limit hit. Retrying in {wait_time}s...")
+                time.sleep(wait_time)
+            else:
+                raise e
 
     raw = response.choices[0].message.content.strip()
 

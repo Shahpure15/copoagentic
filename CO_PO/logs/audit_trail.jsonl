@@ -279,3 +279,213 @@
 {"timestamp": "2026-05-17T20:44:01.436231", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
 {"timestamp": "2026-05-17T20:44:01.437756", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
 {"timestamp": "2026-05-17T20:44:02.591450", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-22T09:04:57.004530", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:04:57.083850", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:04:58.848541", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:04:58.850530", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:04:58.934132", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:04:58.938138", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:04:59.952749", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:05:00.209727", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:06:54.740469", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:06:54.959783", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:06:56.057077", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:06:56.059088", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:06:56.183005", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:06:56.186029", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:06:57.231736", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:06:57.233342", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:06:57.517877", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:06:57.519889", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:06:58.078420", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to duplicate or overlapping course outcomes (COs), vague or non-measurable statements, and lack of clarity in some COs. \n\nTo fix these issues, follow these instructions:\n* Remove or merge duplicate COs (CO1 and CO5) to avoid overlap\n* Add specific metrics for evaluation in CO3 and CO5 (e.g., \"Evaluate the effectiveness of concurrency control mechanisms in ensuring 99.9% data consistency and integrity\")\n* Rephrase COs for clarity, using precise action verbs (e.g., \"Design\", \"Implement\", \"Analyze\")\n* Ensure each CO has a unique focus and measurable outcome."}
+{"timestamp": "2026-05-22T09:06:58.079523", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:06:58.080521", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:06:58.396152", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to:\n- Duplicate or overlapping course outcomes (COs)\n- Vague or non-measurable statements\n- Limited Bloom's taxonomy coverage\n\nInstructions to fix these issues:\n* Remove or merge duplicate COs (e.g., CO4 and CO5)\n* Specify clear metrics or criteria for evaluation in each CO\n* Add COs that cover lower Bloom's taxonomy levels (e.g., levels 1 and 2)\n* Balance the coverage of Bloom's taxonomy levels to avoid overrepresentation of any level\n* Ensure each CO is concise, measurable, and practical"}
+{"timestamp": "2026-05-22T09:06:58.397158", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:06:58.398283", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:06:59.214048", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:06:59.348734", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:06:59.462404", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:06:59.572495", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:07:01.190289", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T09:07:01.192237", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:07:01.193245", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:07:01.392989", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 16 mappings"}
+{"timestamp": "2026-05-22T09:07:01.395945", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:07:01.396943", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:07:18.243527", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:07:18.445322", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:07:19.418503", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:07:19.420398", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:07:19.588438", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:07:19.590949", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:07:20.327566", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:07:20.329564", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:07:22.935247", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to repetition of Bloom's taxonomy level 3, lack of specificity in database system implementation, and broadness of database application.\n\nTo fix these issues:\n* Remove repetition of Bloom's taxonomy level 3 by increasing the level to 4 or higher for CO5\n* Specify the type of database system implementation for CO5 (e.g., cloud-based, distributed)\n* Narrow down CO6 to a specific type of database application (e.g., web-based, mobile) and include specific features or functionalities."}
+{"timestamp": "2026-05-22T09:07:22.936244", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:07:22.937256", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:07:29.661347", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:07:29.663346", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:07:30.222787", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to duplicate objectives, vague statements, and lack of specific criteria for evaluation. \n\nTo fix these issues:\n* Remove duplicates by merging or rephrasing CO4 and CO6\n* Add specific criteria for evaluation in CO3 and CO6\n* Rephrase COs for clarity, using action verbs like \"design\", \"develop\", \"evaluate\", and \"implement\"\n* Ensure each CO has a unique and measurable objective\n* Use precise language to define expected outcomes and evaluation metrics"}
+{"timestamp": "2026-05-22T09:07:30.224851", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:07:30.224851", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:07:36.423920", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:07:36.610179", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:07:45.433490", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 9 mappings"}
+{"timestamp": "2026-05-22T09:07:45.435483", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:07:45.436383", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:11:13.640093", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:11:14.850252", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:11:14.852242", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:11:15.920006", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:11:15.921578", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:11:16.616025", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to duplicate or overlapping objectives, vague or non-measurable statements, and lack of specific action verbs. \n\nTo fix these issues:\n* Remove duplicates by merging or rephrasing overlapping objectives (e.g., CO1 and CO5)\n* Add specific criteria for evaluation to make statements measurable (e.g., CO3 and CO6)\n* Use precise action verbs (e.g., \"optimize\" instead of \"improve\") \n* Quantify expected outcomes where possible (e.g., \"increase database performance by 30%\") \n* Ensure each objective has a unique focus and clear evaluation criteria."}
+{"timestamp": "2026-05-22T09:11:16.617026", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:11:16.618005", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:11:17.724711", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:11:17.974571", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:11:19.475166", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T09:11:19.476337", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:11:19.478621", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:11:19.591598", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T09:11:20.550597", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-22T09:11:27.820527", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:11:28.507076", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:11:28.828118", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:11:28.831084", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:11:29.477733", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:11:29.479745", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:11:29.771136", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:11:29.775143", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:11:30.227246", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to:\n- Duplicate or overlapping course outcomes (COs)\n- Vague statements\n- Lack of clear action verbs\n\nTo fix these issues:\n* Remove duplicates (e.g., merge CO1 and CO5)\n* Define vague terms (e.g., specify metrics for \"effectiveness\" in CO3)\n* Use specific action verbs (e.g., replace \"analyze trade-offs\" with \"compare\" or \"evaluate\" in CO2)"}
+{"timestamp": "2026-05-22T09:11:30.229337", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:11:30.229337", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:11:30.453632", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:11:30.455634", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:11:31.112599", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to:\n- Repeated Bloom's taxonomy level\n- Inconsistent Bloom's taxonomy levels across COs\n- Lack of specific action verbs and measurable outcomes\n\nTo fix these issues:\n* Ensure a range of Bloom's taxonomy levels (1-6) are covered across COs\n* Use specific action verbs (e.g., design, develop, evaluate) in each CO\n* Include measurable outcomes in each CO (e.g., \"with 90% accuracy\", \"within 2 hours\")\n* Revise CO5 to increase its Bloom's taxonomy level to at least L4\n* Remove repetition of Bloom's taxonomy level 6 in CO4 and CO6 by revising one of them to a different level."}
+{"timestamp": "2026-05-22T09:11:31.113598", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:11:31.113598", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:11:31.191686", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:11:31.354303", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:11:32.782691", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T09:11:32.784192", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:11:32.785572", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:11:32.853870", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T09:11:36.904857", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-22T09:11:43.611017", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:11:43.820991", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:11:51.050345", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 18 mappings"}
+{"timestamp": "2026-05-22T09:11:51.053366", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:11:51.054367", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:11:51.148197", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T09:11:59.422635", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-22T09:22:31.720266", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:22:32.028632", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:22:32.799363", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:22:32.802354", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:22:33.050026", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:22:33.052023", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:22:33.774761", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:22:33.776841", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:22:34.269848", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-22T09:22:34.270834", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:22:34.619758", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to duplicate or overlapping course objectives, vague statements, and inconsistent Bloom's levels. \n\nTo fix these issues, follow these instructions:\n* Remove or merge duplicate objectives (CO1 and CO5)\n* Clarify vague statements (define \"efficient and user-friendly interface\" in CO6)\n* Revise CO6 to focus on database design rather than application development\n* Ensure distinct Bloom's levels for each objective (e.g., revise CO6 to a higher or lower level than CO4)\n* Review objectives for consistency and clarity to prevent similar issues."}
+{"timestamp": "2026-05-22T09:22:34.620719", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:22:34.621719", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:22:34.850803", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to incomplete Bloom's taxonomy coverage, duplicate or overlapping learning objectives, vague statements, and non-specific action verbs. \n\nTo fix these issues, follow these instructions:\n* Restrict coverage to Bloom's taxonomy levels 3, 4, 5, and 6, ensuring each level is fully represented.\n* Remove duplicates and overlaps by rephrasing or merging similar objectives (e.g., CO1 and CO5, CO4 and CO6).\n* Make statements specific and measurable (e.g., CO2 and CO3).\n* Use precise action verbs (e.g., \"optimize\" instead of \"improve\")."}
+{"timestamp": "2026-05-22T09:22:34.851729", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:22:34.852678", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:22:35.587446", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:22:35.760127", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:22:36.273480", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:22:36.481751", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:22:38.139576", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 18 mappings"}
+{"timestamp": "2026-05-22T09:22:38.141674", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:22:38.143192", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:22:38.228105", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T09:22:39.208216", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-22T09:22:39.591241", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 18 mappings"}
+{"timestamp": "2026-05-22T09:22:39.593243", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:22:39.594298", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:22:39.707104", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T09:22:43.610395", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:22:43.945933", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:22:45.840993", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:22:46.711856", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:22:48.933770", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-22T09:22:52.019954", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:22:52.021952", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:23:00.019701", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:23:00.021700", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:23:02.637407", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to duplicate or overlapping objectives, vague statements, and lack of clarity. \n\nTo fix these issues:\n* Remove or merge duplicate objectives (CO1 and CO5)\n* Rephrase CO3 to include specific evaluation metrics (e.g., \"Evaluate the effectiveness of a database design in terms of data consistency, integrity, and scalability using metrics such as query response time and data retrieval efficiency\")\n* Rephrase objectives for better clarity, using specific action verbs (e.g., \"Design\", \"Implement\", \"Analyze\") and avoiding ambiguity."}
+{"timestamp": "2026-05-22T09:23:02.638374", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:23:02.639288", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:23:08.667396", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:23:08.843212", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:23:15.626260", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 11 mappings"}
+{"timestamp": "2026-05-22T09:23:15.627262", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:23:15.628887", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:23:15.730522", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T09:23:19.803009", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-22T09:23:26.331982", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:23:26.333509", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:23:31.345745", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=3"}
+{"timestamp": "2026-05-22T09:23:31.347854", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:23:36.023399", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to duplicate or overlapping course outcomes (COs), vague or non-measurable statements, and lack of specific action verbs. \n\nTo fix these issues, follow these instructions:\n* Remove duplicates: Merge CO1 and CO5 into a single outcome that focuses on database system performance and design.\n* Add specific criteria: Revise CO3 and CO6 to include measurable evaluation criteria, such as \"Evaluate the effectiveness of a database management system in terms of data consistency, integrity, and security using metrics like query response time and data recovery rate.\"\n* Use specific action verbs: Revise COs to use precise action verbs like \"Design\", \"Implement\", \"Analyze\", and \"Optimize\" to ensure clarity and measurability."}
+{"timestamp": "2026-05-22T09:23:36.024399", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:23:36.024399", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:23:40.563874", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:23:40.565769", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:23:46.005416", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-22T09:23:46.007839", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:23:46.631321", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to incomplete Bloom's taxonomy level coverage, duplicate or overlapping course outcomes (COs), vague statements, and lack of specific action verbs.\n\nTo fix these issues, follow these instructions:\n* Ensure uniform coverage of Bloom's taxonomy levels 3, 4, 5, and 6 across all COs.\n* Remove or merge duplicate COs (e.g., CO4 and CO6) to avoid overlap.\n* Use specific and concise language in all COs, avoiding vagueness (e.g., clarify CO5).\n* Include specific action verbs in all COs (e.g., CO3 and CO5) to facilitate assessment."}
+{"timestamp": "2026-05-22T09:23:46.632321", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:23:46.633321", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:23:57.688771", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:23:57.902488", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:24:05.503381", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T09:24:05.505876", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:24:05.506889", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:24:05.600953", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T09:24:06.629389", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-22T09:24:17.645180", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:24:17.648166", "agent": "COValidatorAgent", "action": "start", "detail": "Validating COs"}
+{"timestamp": "2026-05-22T09:24:18.922687", "agent": "COValidatorAgent", "action": "result", "detail": "Passed=False, Issues=4"}
+{"timestamp": "2026-05-22T09:24:18.924687", "agent": "ReflectionAgent", "action": "start", "detail": "Analyzing validator feedback to guide regeneration"}
+{"timestamp": "2026-05-22T09:24:19.892967", "agent": "ReflectionAgent", "action": "info", "detail": "Generated improvement instructions: The previous output failed due to:\n- Insufficient Bloom's taxonomy coverage (missing level 1 and 2)\n- Duplicate or overlapping course objectives (COs)\n- Vague or non-measurable statements\n- Lack of specific criteria for analysis and evaluation\n\nInstructions to fix these issues:\n* Cover all 6 levels of Bloom's taxonomy in the output\n* Remove duplicate COs and ensure each objective is unique\n* Rephrase COs to include specific, measurable criteria (e.g., \"analyze... using specific metrics\" or \"evaluate... based on given parameters\")\n* Use clear and concise language, avoiding ambiguity and vagueness\n* Ensure each CO includes a distinct action verb (e.g., design, implement, create) to promote clarity and specificity"}
+{"timestamp": "2026-05-22T09:24:19.893965", "agent": "ReflectionAgent", "action": "info", "detail": "Re-triggering CO Generator with reflection context..."}
+{"timestamp": "2026-05-22T09:24:19.895483", "agent": "COGeneratorAgent", "action": "start", "detail": "Generating 6 COs"}
+{"timestamp": "2026-05-22T09:24:30.635434", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:24:30.837566", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:24:38.518986", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T09:24:38.520962", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:24:38.522475", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:24:38.586930", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T09:24:43.638260", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-22T09:24:52.248567", "agent": "COGeneratorAgent", "action": "complete", "detail": "Generated 6 COs"}
+{"timestamp": "2026-05-22T09:24:52.441034", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:24:59.606920", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 18 mappings"}
+{"timestamp": "2026-05-22T09:24:59.608921", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T09:24:59.608921", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T09:24:59.717185", "agent": "TeachingPhilosophyAgent", "action": "start", "detail": "Generating teaching philosophy"}
+{"timestamp": "2026-05-22T09:25:05.847950", "agent": "TeachingPhilosophyAgent", "action": "complete", "detail": "Teaching philosophy generated"}
+{"timestamp": "2026-05-22T10:00:50.547385", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T10:00:52.501247", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T10:00:52.502248", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T10:00:52.503249", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T10:36:03.412138", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T10:36:05.644813", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T10:36:05.648531", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T10:36:05.650542", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T10:36:35.925894", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T10:36:37.588496", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 12 mappings"}
+{"timestamp": "2026-05-22T10:36:37.590411", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T10:36:37.590411", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=True, Issues=0"}
+{"timestamp": "2026-05-22T10:36:52.610567", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T10:36:54.683440", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 15 mappings"}
+{"timestamp": "2026-05-22T10:36:54.686375", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T10:36:54.687454", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=False, Issues=1"}
+{"timestamp": "2026-05-22T10:37:20.299471", "agent": "POMapperAgent", "action": "start", "detail": "Generating CO-PO mappings"}
+{"timestamp": "2026-05-22T10:37:22.770296", "agent": "POMapperAgent", "action": "complete", "detail": "Generated 21 mappings"}
+{"timestamp": "2026-05-22T10:37:22.772285", "agent": "MappingValidatorAgent", "action": "start", "detail": "Validating CO-PO mappings"}
+{"timestamp": "2026-05-22T10:37:22.772285", "agent": "MappingValidatorAgent", "action": "result", "detail": "Passed=False, Issues=1"}

@@ -16,7 +16,19 @@ Return ONLY concise improvement instructions.
 """
 
 
-def generate_reflection(previous_output, validator_feedback, user_feedback):
+def run(state):
+    state.log(
+        "ReflectionAgent",
+        "start",
+        "Analyzing validator feedback to guide regeneration"
+    )
+
+    validator_feedback = getattr(state, "reflection_feedback", "Validation failed.")
+    
+    # Extract the previous CO statements to analyze
+    previous_output = ""
+    if getattr(state, "cos", None):
+        previous_output = "\n".join([f"- {co.statement}" for co in state.cos])
 
     prompt = f"""
 PREVIOUS OUTPUT:
@@ -25,10 +37,8 @@ PREVIOUS OUTPUT:
 VALIDATOR FEEDBACK:
 {validator_feedback}
 
-USER FEEDBACK:
-{user_feedback}
-
-Generate concise regeneration instructions.
+Analyze the validator feedback. Why did the previous output fail?
+Provide a concise bulleted list of strict instructions for the generator to fix these specific issues on its next attempt.
 """
 
     response = call_llm(
@@ -36,5 +46,19 @@ Generate concise regeneration instructions.
         system=SYSTEM,
         expect_json=False
     )
+    
+    state.log(
+        "ReflectionAgent",
+        "info",
+        f"Generated improvement instructions: {response}"
+    )
 
-    return response
+    # Store the synthesized reflection instructions back into state
+    state.reflection_feedback = response
+    
+    # We now explicitly trigger the generator again to regenerate based on the reflection
+    from agents import co_generator
+    state.log("ReflectionAgent", "info", "Re-triggering CO Generator with reflection context...")
+    state = co_generator.run(state)
+    
+    return state
